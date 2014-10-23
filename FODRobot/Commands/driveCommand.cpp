@@ -13,14 +13,19 @@
 #include "../IMUlib/IMU.h"
 #include <math.h>
 
+//Setting up variables
 float XAxis;
 float YAxis;
 float RotateAxis;
 float imu_yaw;
-//float pi = 3.141526;
-//float current_gyro_angle_radians;
-//float temp;
-bool is_calibrating;
+const int IMU_UPDATE_RATE = 50;
+const int BAUD_RATE = 57600;
+float pi = 3.141526;
+float current_gyro_angle_radians;
+float YAxis_Calc;
+bool isCalibrating;
+
+//Pointing to Serial Port and IMU
 SerialPort *serial_port;
 IMU *imu;
 
@@ -34,23 +39,32 @@ driveCommand::driveCommand() {
 
 // Called just before this Command runs the first time
 void driveCommand::Initialize() {
+	//Setting up variables and IMU
+	//This makes sure when we enable the robot, the joystick values are not already pointing forward. 
 	XAxis = 0;
 	YAxis = 0;
 	RotateAxis = 0;
-	serial_port = new SerialPort(57600);
-	imu = new IMU(serial_port, 50);
+	serial_port = new SerialPort(BAUD_RATE);
+	imu = new IMU(serial_port, IMU_UPDATE_RATE);
+	imu->ZeroYaw();
+	isCalibrating = imu->IsCalibrating();
+	printf("%d\n",isCalibrating);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
 	imu_yaw = imu->GetYaw();
-	is_calibrating = imu->IsCalibrating();
-	//current_gyro_angle_radians = imu_yaw * pi/180;
-	printf("%f0.002\n", imu_yaw);
-	printf("%d\n", is_calibrating);
+	printf("%f3.1\n", imu_yaw);
+			
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(2);
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
+	
+	//Sets up deadbands (this gets rid of the robot moving very slowly
+	//even when you are not touching the joystick. Because the joystick
+	//is never really at zero it is at for example 0.0389583. This makes
+	//sure every joystick is in the range of -0.20 to 0.20 and if it is set all
+	//the axis to zero, if not send the current value to the MechDrive function.
 	if(XAxis < 0.20 && XAxis > -0.20)
 	{
 		XAxis = 0;
@@ -63,9 +77,16 @@ void driveCommand::Execute() {
 	{
 		RotateAxis = 0;
 	}
-	//current_gyro_angle_radians = imu_yaw * pi/180;
-	//temp = YAxis * cos(current_gyro_angle_radians) + XAxis * sin(current_gyro_angle_radians);
-	//XAxis = -YAxis * sin(current_gyro_angle_radians) + XAxis * cos(current_gyro_angle_radians);
+	
+	//Ewwwww! Trig Calculations! This block of code is saying "If the robot is pointing
+	//in one direction and you are making it drive in another direction then rotate X/Y
+	//So that foward is really another angle
+	current_gyro_angle_radians = imu_yaw * pi/180;
+	YAxis_Calc = YAxis * cos(current_gyro_angle_radians) + XAxis * sin(current_gyro_angle_radians);
+	XAxis = -YAxis * sin(current_gyro_angle_radians) + XAxis * cos(current_gyro_angle_radians);
+	YAxis = YAxis_Calc;
+
+	//Sends XAxis, YAxis, and RotateAxis to MechDrive function in DriveBaseSub.cpp
 	Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,imu_yaw);
 }
 
