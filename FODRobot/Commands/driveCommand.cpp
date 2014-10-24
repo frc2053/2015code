@@ -13,21 +13,26 @@
 #include "../IMUlib/IMU.h"
 #include <math.h>
 
+const float PI = 3.14159;
+const int BAUD_RATE = 57600;
+const int IMU_UPDATE_RATE = 50;
+
+
 //Setting up variables
 float XAxis;
 float YAxis;
 float RotateAxis;
-float imu_yaw;
-const int IMU_UPDATE_RATE = 50;
-const int BAUD_RATE = 57600;
-float pi = 3.141526;
-float current_gyro_angle_radians;
 float YAxis_Calc;
+
+float IMU_Yaw;
+float GyroAngleRads;
+
 bool isCalibrating;
+bool isInit;
 
 //Pointing to Serial Port and IMU
-SerialPort *serial_port;
-IMU *imu;
+SerialPort *pIMU_Serial_Port;
+IMU *pRobot_IMU;
 
 driveCommand::driveCommand() {
 	// Use requires() here to declare subsystem dependencies
@@ -40,22 +45,33 @@ driveCommand::driveCommand() {
 // Called just before this Command runs the first time
 void driveCommand::Initialize() {
 	//Setting up variables and IMU
-	//This makes sure when we enable the robot, the joystick values are not already pointing forward. 
+	//This makes sure when we enable the robot, the joystick values are already pointing forward. 
 	XAxis = 0;
 	YAxis = 0;
 	RotateAxis = 0;
-	serial_port = new SerialPort(BAUD_RATE);
-	imu = new IMU(serial_port, IMU_UPDATE_RATE);
-	imu->ZeroYaw();
-	isCalibrating = imu->IsCalibrating();
-	printf("%d\n",isCalibrating);
+	YAxis_Calc = 0;
+	
+	IMU_Yaw = 0;
+    GyroAngleRads = 0;
+	
+	isCalibrating = true;
+   
+	
+	pIMU_Serial_Port = new SerialPort(BAUD_RATE);
+	pRobot_IMU = new IMU(pIMU_Serial_Port, IMU_UPDATE_RATE);
+	
+	isCalibrating = pRobot_IMU->IsCalibrating();
+	if(!isCalibrating) 
+		{
+		Wait(0.3);
+		}
+	pRobot_IMU->ZeroYaw();
+		
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-	imu_yaw = imu->GetYaw();
-	printf("%f3.1\n", imu_yaw);
-			
+		
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(2);
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
@@ -65,29 +81,68 @@ void driveCommand::Execute() {
 	//is never really at zero it is at for example 0.0389583. This makes
 	//sure every joystick is in the range of -0.20 to 0.20 and if it is set all
 	//the axis to zero, if not send the current value to the MechDrive function.
+	
+	//Also squares the values which increases sensitivity, and (mostly) blends out
+	// the discontinuity you would have with just the dead band (there's no step from 0 to .2, 
+	//  the lowest value is 0 to .04 now.
+	
 	if(XAxis < 0.20 && XAxis > -0.20)
 	{
 		XAxis = 0;
 	}
+	else 
+	{
+		XAxis = XAxis * fabs(XAxis);
+	}
+	
 	if(YAxis < 0.20 && YAxis > -0.20)
 	{
 		YAxis = 0;
+	}
+	else 
+	{
+		YAxis = YAxis * fabs(YAxis);
 	}
 	if(RotateAxis < 0.20 && RotateAxis > -0.20)
 	{
 		RotateAxis = 0;
 	}
+	else 
+	{
+		RotateAxis = RotateAxis * fabs(RotateAxis);
+	}
+	
+	
+	// On some joysticks the forward/Y component is returned as -1, need to negate that
+	YAxis = -YAxis;
+	
+	
+	printf("\nYaw Angle %f.2\n", IMU_Yaw);
+	printf("JoyX %3.2f\n", XAxis);
+	printf("JoyY %3.2f\n", YAxis);
+	printf("JoyRot %3.2f\n", RotateAxis);
+	
+	//Read current robot orientation angle measured from starting position=0 degrees
+	IMU_Yaw = pRobot_IMU->GetYaw();
 	
 	//Ewwwww! Trig Calculations! This block of code is saying "If the robot is pointing
 	//in one direction and you are making it drive in another direction then rotate X/Y
-	//So that foward is really another angle
-	current_gyro_angle_radians = imu_yaw * pi/180;
-	YAxis_Calc = YAxis * cos(current_gyro_angle_radians) + XAxis * sin(current_gyro_angle_radians);
-	XAxis = -YAxis * sin(current_gyro_angle_radians) + XAxis * cos(current_gyro_angle_radians);
-	YAxis = YAxis_Calc;
+	//So that forward is really another angle
+	GyroAngleRads = IMU_Yaw * PI/180;
+	//YAxis_Calc = YAxis * cos(GyroAngleRads) + XAxis * sin(GyroAngleRads);
+	//XAxis = -YAxis * sin(GyroAngleRads) + XAxis * cos(GyroAngleRads);
+	//YAxis = YAxis_Calc;
+	
+	
+	
+	printf("Drive X %3.2f\n", XAxis);
+	printf("Drive Y %3.2f\n", YAxis);
+	
+	
+	
 
 	//Sends XAxis, YAxis, and RotateAxis to MechDrive function in DriveBaseSub.cpp
-	Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,imu_yaw);
+	Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
 }
 
 // Make this return true when this Command no longer needs to run execute()
