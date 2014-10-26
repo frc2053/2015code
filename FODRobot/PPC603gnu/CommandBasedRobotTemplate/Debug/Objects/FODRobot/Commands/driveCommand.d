@@ -393,13 +393,13 @@ CommandBasedRobotTemplate/Debug/Objects/FODRobot/Commands/driveCommand.o:  \
   C:/WindRiver/workspace/FODRobot/Commands/../Subsystems/DriveBaseSub.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/Subsystem.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/WPILib.h \
-  C:/WindRiver/workspace/FODRobot/Commands/../OI.h \
-  C:/WindRiver/workspace/FODRobot/Commands/../IMUlib/IMU.h \
+  C:/WindRiver/workspace/FODRobot/Commands/../Subsystems/../IMUlib/IMU.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SensorBase.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/PIDSource.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h \
+  C:/WindRiver/workspace/FODRobot/Commands/../OI.h \
   C:/WindRiver/vxworks-6.3/target/h/math.h
 
 C:/WindRiver/workspace/FODRobot/Commands/driveCommand.h:
@@ -1188,9 +1188,7 @@ C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/Subsystem.
 
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/WPILib.h:
 
-C:/WindRiver/workspace/FODRobot/Commands/../OI.h:
-
-C:/WindRiver/workspace/FODRobot/Commands/../IMUlib/IMU.h:
+C:/WindRiver/workspace/FODRobot/Commands/../Subsystems/../IMUlib/IMU.h:
 
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SensorBase.h:
 
@@ -1201,5 +1199,7 @@ C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWind
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h:
 
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h:
+
+C:/WindRiver/workspace/FODRobot/Commands/../OI.h:
 
 C:/WindRiver/vxworks-6.3/target/h/math.h:

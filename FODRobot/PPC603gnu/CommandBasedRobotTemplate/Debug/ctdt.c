@@ -9,6 +9,8 @@
 
 void _GLOBAL__I__ZN17AutonomousCommandC2Ev();
 
+void _GLOBAL__I_imu_yaw();
+
 void _GLOBAL__I_XAxis();
 
 void _GLOBAL__I__ZN3IMU19DecodePacketHandlerEPci();
@@ -77,6 +79,7 @@ extern void (*_ctors[])();
 void (*_ctors[])() =
     {
     _GLOBAL__I__ZN17AutonomousCommandC2Ev,
+    _GLOBAL__I_imu_yaw,
     _GLOBAL__I_XAxis,
     _GLOBAL__I__ZN3IMU19DecodePacketHandlerEPci,
     _GLOBAL__I__ZN2OIC2Ev,
@@ -113,6 +116,8 @@ void (*_ctors[])() =
     };
 
 void _GLOBAL__D__ZN17AutonomousCommandC2Ev();
+
+void _GLOBAL__D_imu_yaw();
 
 void _GLOBAL__D_XAxis();
 
@@ -170,6 +175,7 @@ extern void (*_dtors[])();
 void (*_dtors[])() =
     {
     _GLOBAL__D__ZN17AutonomousCommandC2Ev,
+    _GLOBAL__D_imu_yaw,
     _GLOBAL__D_XAxis,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN5Robot12driveBaseSubE,

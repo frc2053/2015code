@@ -10,12 +10,9 @@
 
 
 #include "driveCommand.h"
-#include "../IMUlib/IMU.h"
 #include <math.h>
 
 const float PI = 3.14159;
-const int BAUD_RATE = 57600;
-const int IMU_UPDATE_RATE = 50;
 
 
 //Setting up variables
@@ -30,9 +27,6 @@ float GyroAngleRads;
 bool isCalibrating;
 bool isInit;
 
-//Pointing to Serial Port and IMU
-SerialPort *pIMU_Serial_Port;
-IMU *pRobot_IMU;
 
 driveCommand::driveCommand() {
 	// Use requires() here to declare subsystem dependencies
@@ -55,23 +49,19 @@ void driveCommand::Initialize() {
     GyroAngleRads = 0;
 	
 	isCalibrating = true;
-   
 	
-	pIMU_Serial_Port = new SerialPort(BAUD_RATE);
-	pRobot_IMU = new IMU(pIMU_Serial_Port, IMU_UPDATE_RATE);
-	
-	isCalibrating = pRobot_IMU->IsCalibrating();
+	isCalibrating = Robot::driveBaseSub->pRobot_IMU->IsCalibrating();
 	if(!isCalibrating) 
 		{
 		Wait(0.3);
 		}
-	pRobot_IMU->ZeroYaw();
+	Robot::driveBaseSub->pRobot_IMU->ZeroYaw();
 		
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-		
+	SmartDashboard::PutNumber("Angle of Robot", Robot::driveBaseSub->pRobot_IMU->GetYaw());
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(2);
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
@@ -123,7 +113,7 @@ void driveCommand::Execute() {
 	printf("JoyRot %3.2f\n", RotateAxis);
 	
 	//Read current robot orientation angle measured from starting position=0 degrees
-	IMU_Yaw = pRobot_IMU->GetYaw();
+	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
 	
 	//Ewwwww! Trig Calculations! This block of code is saying "If the robot is pointing
 	//in one direction and you are making it drive in another direction then rotate X/Y

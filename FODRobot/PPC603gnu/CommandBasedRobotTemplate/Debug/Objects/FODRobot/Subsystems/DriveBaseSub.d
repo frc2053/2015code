@@ -384,6 +384,12 @@
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Vision/HSLImage.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Vision/ColorImage.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/WPIErrors.h \
+  C:/WindRiver/workspace/FODRobot/Subsystems/../IMUlib/IMU.h \
+  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SensorBase.h \
+  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/PIDSource.h \
+  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindowSendable.h \
+  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h \
+  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h \
   C:/WindRiver/workspace/FODRobot/Subsystems/../Robotmap.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/WPILib.h \
   C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/driveCommand.h \
@@ -1164,6 +1170,18 @@ C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Vision/HSLImage.h:
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Vision/ColorImage.h:
 
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/WPIErrors.h:
+
+C:/WindRiver/workspace/FODRobot/Subsystems/../IMUlib/IMU.h:
+
+C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SensorBase.h:
+
+C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/PIDSource.h:
+
+C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindowSendable.h:
+
+C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h:
+
+C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h:
 
 C:/WindRiver/workspace/FODRobot/Subsystems/../Robotmap.h:
 
