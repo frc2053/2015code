@@ -35,6 +35,9 @@ void RotatetoAngle::Execute() {
 		y = 0.0;
 		imu_yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
 		Robot::driveBaseSub->MechDrive(x, y, 0.0 ,imu_yaw);
+		//Shouldn't it be this -> Robot::driveBaseSub->MechDrive(x, y, (?),imu_yaw);
+		//Where (?) would have to slowly have to rotate towards 0.00 degrees.
+		//I don't really know how you would do that.
 	}
 }
 
