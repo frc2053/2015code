@@ -102,35 +102,16 @@ void driveCommand::Execute() {
 		RotateAxis = RotateAxis * fabs(RotateAxis);
 	}
 	
-	
-	// On some joysticks the forward/Y component is returned as -1, need to negate that
-	YAxis = -YAxis;
-	
-	
-	printf("\nYaw Angle %f.2\n", IMU_Yaw);
-	printf("JoyX %3.2f\n", XAxis);
-	printf("JoyY %3.2f\n", YAxis);
-	printf("JoyRot %3.2f\n", RotateAxis);
+	SmartDashboard::PutNumber("JoyX", XAxis);
+	SmartDashboard::PutNumber("JoyY", YAxis);
+	SmartDashboard::PutNumber("JoyRot", RotateAxis);
 	
 	//Read current robot orientation angle measured from starting position=0 degrees
 	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
 	
-	//Ewwwww! Trig Calculations! This block of code is saying "If the robot is pointing
-	//in one direction and you are making it drive in another direction then rotate X/Y
-	//So that forward is really another angle
-	GyroAngleRads = IMU_Yaw * PI/180;
-	//YAxis_Calc = YAxis * cos(GyroAngleRads) + XAxis * sin(GyroAngleRads);
-	//XAxis = -YAxis * sin(GyroAngleRads) + XAxis * cos(GyroAngleRads);
-	//YAxis = YAxis_Calc;
-	
-	
-	
 	printf("Drive X %3.2f\n", XAxis);
 	printf("Drive Y %3.2f\n", YAxis);
 	
-	
-	
-
 	//Sends XAxis, YAxis, and RotateAxis to MechDrive function in DriveBaseSub.cpp
 	Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
 }

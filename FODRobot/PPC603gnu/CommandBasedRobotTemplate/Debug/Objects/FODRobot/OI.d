@@ -404,7 +404,8 @@ CommandBasedRobotTemplate/Debug/Objects/FODRobot/OI.o:  \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h \
   C:/WindRiver/workspace/FODRobot/Commands/../OI.h \
   C:/WindRiver/workspace/FODRobot/Commands/driveCommand.h \
-  C:/WindRiver/workspace/FODRobot/Commands/RotatetoAngle.h
+  C:/WindRiver/workspace/FODRobot/Commands/RotatetoAngle.h \
+  C:/WindRiver/workspace/FODRobot/Commands/ZeroYaw.h
 
 C:/WindRiver/workspace/FODRobot/OI.h:
 
@@ -1215,3 +1216,5 @@ C:/WindRiver/workspace/FODRobot/Commands/../OI.h:
 C:/WindRiver/workspace/FODRobot/Commands/driveCommand.h:
 
 C:/WindRiver/workspace/FODRobot/Commands/RotatetoAngle.h:
+
+C:/WindRiver/workspace/FODRobot/Commands/ZeroYaw.h:
