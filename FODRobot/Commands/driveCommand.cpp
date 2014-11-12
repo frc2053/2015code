@@ -61,6 +61,7 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
+	printf("i am running the drive command execute!\n");
 	SmartDashboard::PutNumber("Angle of Robot", Robot::driveBaseSub->pRobot_IMU->GetYaw());
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(2);
@@ -108,9 +109,6 @@ void driveCommand::Execute() {
 	
 	//Read current robot orientation angle measured from starting position=0 degrees
 	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
-	
-	printf("Drive X %3.2f\n", XAxis);
-	printf("Drive Y %3.2f\n", YAxis);
 	
 	//Sends XAxis, YAxis, and RotateAxis to MechDrive function in DriveBaseSub.cpp
 	Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
