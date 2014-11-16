@@ -23,7 +23,6 @@ float YAxis_Calc;
 float IMU_Yaw;
 float GyroAngleRads;
 
-bool isCalibrating;
 bool isInit;
 
 
@@ -46,17 +45,7 @@ void driveCommand::Initialize() {
 	YAxis_Calc = 0;
 	
 	IMU_Yaw = 0;
-    GyroAngleRads = 0;
-	
-	isCalibrating = true;
-	
-	isCalibrating = Robot::driveBaseSub->pRobot_IMU->IsCalibrating();
-	if(!isCalibrating) 
-		{
-		Wait(0.3);
-		}
-	Robot::driveBaseSub->pRobot_IMU->ZeroYaw();
-		
+	GyroAngleRads = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
