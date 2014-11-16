@@ -11,7 +11,7 @@
 
 #include "RotatetoAngle.h"
 
-const int ANGLE_TOLERANCE = 10; // Tolerance in degrees on either side of set angle
+const int ANGLE_TOLERANCE = 2; // Tolerance in degrees on either side of set angle
 const int DRIVE_ANGLE = 0; // Only causing drive spins in this command - it doesn't need to know angle.  
 const int DRIVE_X = 0; // used for translation magnitude to drive command - not used - stays 0
 const int DRIVE_Y = 0; // used for translation magnitude to drive command - not used - stays 0
@@ -50,9 +50,7 @@ RotatetoAngle::RotatetoAngle(float Angle, float Speed) {
 
 // Called just before this Command runs the first time
 void RotatetoAngle::Initialize() {
-
 	isDone = false; // Just started - can't be done yet
-	
 	printf("\n\nRotateToAngleInit\n\n");
 
 	imu_yaw = 0;
@@ -66,105 +64,71 @@ void RotatetoAngle::Initialize() {
 	//Assume we don't need the robot to spin until proven via measurement.
 	TooFarCW = false;
 	TooFarCCW = false;
-	
 }
 
 // Called repeatedly when this Command is scheduled to run
 void RotatetoAngle::Execute() {
+	printf("Executing rotate to angle command");	
+	//Assume we don't need the robot to spin until proven via measurement.
+	TooFarCW = false;
+	TooFarCCW = false;
 	
-	//Need one of these to be true to get start loop - 
-	// Setting both conditions true isnt ever valid, which also prevent unnecessary movements.
-	TooFarCW = true;
-	TooFarCCW = true;
-	//Leave this in for now - shows if command call causes this to be executed once or repeatedly
-	printf("If you see this statement repeatedly something is wrong");
+	//Default to no rotation commanded
+	RotCmd = 0;
+	
+	
+	//Read the actual Robot Angle from IMU
+	imu_yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	printf("\n(loop) Raw IMU %3.2f\n", imu_yaw);
+	
+	//Scale the IMU reading 
+	IMU_Scaled = imu_yaw + 1000;
+	printf("(loop) Scaled IMU %3.2f\n", IMU_Scaled);
+	//Scale Set Angle 
+	setAngleScaled = setAngle + 1000;
+	printf("(loop) Scaled Set Angle %3.2f\n", setAngleScaled);
+	
+	if(IMU_Scaled > (setAngleScaled + ANGLE_TOLERANCE)) {
+		TooFarCW = true;
+		spinDirection = -1;
+	}
+	
+	if (IMU_Scaled < (setAngleScaled - ANGLE_TOLERANCE)) {
+		TooFarCCW = true;
+		spinDirection = 1;
+	}
+	
+	//Only start spinning if we need to.
+	if (TooFarCW || TooFarCCW) {
+		RotCmd = spinDirection * setSpeed;
 		
-	while(TooFarCW || TooFarCCW) {
-	
-		//because this loop takes time to execute, this gives the OS a chance to keep the rest of the system running
-		sleep(1);
-	
-		//Assume we don't need the robot to spin until proven via measurement.
+		printf("(loop) SpinCW = %d     SpinCCW = %d     SpinDir = %f     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, spinDirection, RotCmd);
+		Robot::driveBaseSub->MechDrive(DRIVE_X, DRIVE_Y, RotCmd, DRIVE_ANGLE);
+	}
+		
+	// If we didn't need to spin, we can end the command now.
+	else {
 		TooFarCW = false;
 		TooFarCCW = false;
 		
-		//Default to no rotation commanded
-		RotCmd = 0;
-	
-		
-		//Read the actual Robot Angle from IMU
-		imu_yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
-		printf("\n(loop) Raw IMU %3.2f\n", imu_yaw);
-	
-		//Scale the IMU reading 
-		IMU_Scaled = imu_yaw + 1000;
-		printf("(loop) Scaled IMU %3.2f\n", IMU_Scaled);
-		//Scale Set Angle 
-		setAngleScaled = setAngle + 1000;
-		printf("(loop) Scaled Set Angle %3.2f\n", setAngleScaled);
-		
-	
-		if (IMU_Scaled > (setAngleScaled + ANGLE_TOLERANCE)) {
-			TooFarCW = true;
-			spinDirection = -1;
-		}
-	
-		if (IMU_Scaled < (setAngleScaled - ANGLE_TOLERANCE)) {;
-			TooFarCCW = true;
-			spinDirection = 1;
-		}
-	
-		//Only start spinning if we need to.
-		if (TooFarCW || TooFarCCW) {
-		
-			//TooFarCW = false;
-			//TooFarCCW = false;
-	
-			RotCmd = spinDirection * setSpeed;
-			
-			//This should come out at some point and done properly with real PID
-			//If it oscilates, make subsequent direction turns slower to damp it out.
-			//Guessing this wont work very well
-			//setSpeed = setSpeed * .8;
-			
-		
-			printf("(loop) SpinCW = %d     SpinCCW = %d     SpinDir = %f     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, spinDirection, RotCmd);
-			Robot::driveBaseSub->MechDrive(DRIVE_X, DRIVE_Y, RotCmd, DRIVE_ANGLE);
-		}
-		
-		// If we didn't need to spin, we can end the command now.
-		else {
-		
-			TooFarCW = false;
-			TooFarCCW = false;
-			
-			printf("\n\n(loop)Didn't need to spin.\n\n");
-			isDone = true;
-			Robot::driveBaseSub->MechDrive(DRIVE_X, DRIVE_Y, 0, DRIVE_ANGLE);
-		}
-		
+		printf("\n\n(loop)Didn't need to spin.\n\n");
+		isDone = true;
+		Robot::driveBaseSub->MechDrive(DRIVE_X, DRIVE_Y, 0, DRIVE_ANGLE);
 	}
-	
-	printf("\n\nSetting isDone=True.\n\n");
-	Robot::driveBaseSub->MechDrive(DRIVE_X, DRIVE_Y, 0, DRIVE_ANGLE);
-	isDone = true;
 }
-
 // Make this return true when this Command no longer needs to run execute()
 bool RotatetoAngle::IsFinished() {
-
-	printf("\n\nRotateToAngle Complete!!!\n\n");
+	printf("\n\nRan through execute loop.\n\n");
 	
 	return isDone;
 }
 
 // Called once after isFinished returns true
 void RotatetoAngle::End() {
-	
+	printf("\n\nActually done with the command\n\n");
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RotatetoAngle::Interrupted() {
-
 }
