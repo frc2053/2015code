@@ -9,21 +9,22 @@
 
 
 #include "driveCommand.h"
+#include "RotatetoAngle.h"
 #include <math.h>
 
-const float PI = 3.14159;
 
 
 //Setting up variables
 float XAxis;
 float YAxis;
 float RotateAxis;
-float YAxis_Calc;
 
 float IMU_Yaw;
-float GyroAngleRads;
+float SavedIMU;
 
-bool isInit;
+int loop_count;
+
+bool isMoving;
 
 
 driveCommand::driveCommand() {
@@ -42,16 +43,38 @@ void driveCommand::Initialize() {
 	XAxis = 0;
 	YAxis = 0;
 	RotateAxis = 0;
-	YAxis_Calc = 0;
 	
 	IMU_Yaw = 0;
-	GyroAngleRads = 0;
+	SavedIMU = 0;
+	
+	loop_count = 0;
+	
+	isMoving = false ;
+	
+	
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
+
 	printf("i am running the drive command execute!\n");
-	SmartDashboard::PutNumber("Angle of Robot", Robot::driveBaseSub->pRobot_IMU->GetYaw());
+	
+	
+	//Read current robot orientation angle measured from starting position=0 degrees
+	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	
+	if (loop_count == 0) {
+		SavedIMU = IMU_Yaw;
+		loop_count = 1;
+	}
+	
+		
+	
+	SmartDashboard::PutNumber("Angle of Robot", IMU_Yaw);
+
+	
+	isMoving = false;
+	
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(2);
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
@@ -69,39 +92,70 @@ void driveCommand::Execute() {
 	if(XAxis < 0.20 && XAxis > -0.20)
 	{
 		XAxis = 0;
+		isMoving = false;
 	}
 	else 
 	{
 		XAxis = XAxis * fabs(XAxis);
+		isMoving = true;
 	}
 	
 	if(YAxis < 0.20 && YAxis > -0.20)
 	{
 		YAxis = 0;
+		isMoving = false;
 	}
 	else 
 	{
 		YAxis = YAxis * fabs(YAxis);
+		isMoving = true;
 	}
 	if(RotateAxis < 0.20 && RotateAxis > -0.20)
 	{
 		RotateAxis = 0;
+		isMoving = false;
 	}
 	else 
 	{
 		RotateAxis = RotateAxis * fabs(RotateAxis);
+		isMoving = true;
 	}
 	
 	SmartDashboard::PutNumber("JoyX", XAxis);
 	SmartDashboard::PutNumber("JoyY", YAxis);
 	SmartDashboard::PutNumber("JoyRot", RotateAxis);
 	
-	//Read current robot orientation angle measured from starting position=0 degrees
-	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
-	
 	//Sends XAxis, YAxis, and RotateAxis to MechDrive function in DriveBaseSub.cpp
-	Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
-}
+	//Driver is commanding movement
+	/*if(isMoving == true) {
+		printf("Regular Movement\n");
+		Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
+		
+		//save the last orientation while someone was commanding the robot
+		SavedIMU = IMU_Yaw;
+		
+	}*/
+	//else {
+	
+		//TODO:  this needs to be updated to account for tolerances of measurements...
+		
+		//Driver is inactive and robot moved from last saved position, so auto-correct
+		/*if(IMU_Yaw != SavedIMU) {
+		
+			printf("Running Rotate to angle from driveCommand\n");
+			new RotatetoAngle(SavedIMU, 0.2);
+		
+		}*/
+		
+		// If driver is idle, but robot hasnt moved on it's own - shut down motors, etc.
+		//else {
+			printf("No driver input, no auto correction needed\n");
+			Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
+		//}
+		
+		
+	}
+//}
 
 // Make this return true when this Command no longer needs to run execute()
 bool driveCommand::IsFinished() {

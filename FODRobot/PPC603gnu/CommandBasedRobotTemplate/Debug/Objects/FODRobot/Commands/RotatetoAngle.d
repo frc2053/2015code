@@ -400,7 +400,8 @@
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h \
-  C:/WindRiver/workspace/FODRobot/Commands/../OI.h
+  C:/WindRiver/workspace/FODRobot/Commands/../OI.h \
+  C:/WindRiver/vxworks-6.3/target/h/math.h
 
 C:/WindRiver/workspace/FODRobot/Commands/RotatetoAngle.h:
 
@@ -1201,3 +1202,5 @@ C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h:
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h:
 
 C:/WindRiver/workspace/FODRobot/Commands/../OI.h:
+
+C:/WindRiver/vxworks-6.3/target/h/math.h:
