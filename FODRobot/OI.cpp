@@ -28,7 +28,7 @@ OI::OI() {
 	
 	//Rotate to Angle Command
 	button1 = new JoystickButton(joystick1, 1);
-	button1->WhenPressed(new RotatetoAngle(0, 0.2));
+	button1->WhenPressed(new RotatetoAngle(0, 1));
 
         // SmartDashboard Buttons
 	SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());

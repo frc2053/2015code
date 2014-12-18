@@ -117,7 +117,15 @@ CommandBasedRobotTemplate/$(MODE_DIR)/% : LIBPATH =
 CommandBasedRobotTemplate/$(MODE_DIR)/% : LIBS = 
 CommandBasedRobotTemplate/$(MODE_DIR)/% : OBJ_DIR := CommandBasedRobotTemplate/$(MODE_DIR)
 
+CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutoCommandGroup.o : $(PRJ_ROOT_DIR)/Commands/AutoCommandGroup.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.o : $(PRJ_ROOT_DIR)/Commands/AutonomousCommand.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/DriveAuto.o : $(PRJ_ROOT_DIR)/Commands/DriveAuto.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
@@ -157,7 +165,9 @@ CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Subsystems/DriveBaseSub.o
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_CommandBasedRobotTemplate = CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.o \
+OBJECTS_CommandBasedRobotTemplate = CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutoCommandGroup.o \
+	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.o \
+	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/DriveAuto.o \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/RotatetoAngle.o \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/ZeroYaw.o \
 	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/driveCommand.o \
@@ -211,7 +221,15 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : LIBPATH =
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := CommandBassedRobotTemplate_partialImage/$(MODE_DIR)
 
+CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutoCommandGroup.o : $(PRJ_ROOT_DIR)/Commands/AutoCommandGroup.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.o : $(PRJ_ROOT_DIR)/Commands/AutonomousCommand.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/DriveAuto.o : $(PRJ_ROOT_DIR)/Commands/DriveAuto.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
@@ -251,7 +269,9 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Subsystems/
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_CommandBassedRobotTemplate_partialImage = CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.o \
+OBJECTS_CommandBassedRobotTemplate_partialImage = CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutoCommandGroup.o \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.o \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/DriveAuto.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/RotatetoAngle.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/ZeroYaw.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/driveCommand.o \
@@ -274,13 +294,14 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/CommandBassedRobotTemplate_p
 
 force : 
 
-DEP_FILES := CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/RotatetoAngle.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/ZeroYaw.d \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/driveCommand.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMU.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMUAdvanced.d \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/OI.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Robot.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/RobotMap.d \
-	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Subsystems/DriveBaseSub.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/RotatetoAngle.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/ZeroYaw.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/driveCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMU.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMUAdvanced.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/OI.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Robot.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/RobotMap.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Subsystems/DriveBaseSub.d
+DEP_FILES := CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutoCommandGroup.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/DriveAuto.d \
+	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/RotatetoAngle.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/ZeroYaw.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Commands/driveCommand.d \
+	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMU.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMUAdvanced.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/OI.d \
+	 CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Robot.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/RobotMap.d CommandBasedRobotTemplate/$(MODE_DIR)/Objects/FODRobot/Subsystems/DriveBaseSub.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutoCommandGroup.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/AutonomousCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/DriveAuto.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/RotatetoAngle.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/ZeroYaw.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Commands/driveCommand.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMU.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/IMUlib/IMUAdvanced.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/OI.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Robot.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/RobotMap.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/FODRobot/Subsystems/DriveBaseSub.d
 -include $(DEP_FILES)
 
 

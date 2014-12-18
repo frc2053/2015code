@@ -399,7 +399,9 @@ CommandBasedRobotTemplate/Debug/Objects/FODRobot/Robot.o:  \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindowSendable.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h \
-  C:/WindRiver/workspace/FODRobot/OI.h
+  C:/WindRiver/workspace/FODRobot/OI.h \
+  C:/WindRiver/workspace/FODRobot/Commands/AutoCommandGroup.h \
+  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/CommandGroup.h
 
 C:/WindRiver/workspace/FODRobot/Robot.h:
 
@@ -1200,3 +1202,7 @@ C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/SerialPort.h:
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Task.h:
 
 C:/WindRiver/workspace/FODRobot/OI.h:
+
+C:/WindRiver/workspace/FODRobot/Commands/AutoCommandGroup.h:
+
+C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/CommandGroup.h:

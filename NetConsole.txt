@@ -1,0 +1,829 @@
+DriveAuto InitVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.30
+ Done timer->Start();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.00
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.01
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.03
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.05
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.07
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.09
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.11
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.14
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.16
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.17
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.19
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.21
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.23
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.25
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.27
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.29
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.31
+isDoneDriveAuto = true;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= true 
+ In DriveAuto::End()drive auto over.
+ Done DriveAuto::End()
+ In DriveAuto::Initialize()
+DriveAuto InitVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.30
+ Done timer->Start();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.00
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.02
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.04
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.06
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.08
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.10
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.12
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.14
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.16
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.18
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.20
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.22
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.24
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.26
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.30
+isDoneDriveAuto = false;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= false 
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In DriveAuto::Execute()
+DriveAuto ExeVals X=0.50  Y=0.00  Rot=0.00 Yaw=0.00  Time=0.32
+isDoneDriveAuto = true;
+ Leaving DriveAuto::Execute()
+ In DriveAuto::IsFinished(), returning isDoneDriveAuto= true 
+ In DriveAuto::End()drive auto over.
+ Done DriveAuto::End()
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();
+ In driveCommand::Execute(
+ Command Drive with AutoRotate
+ Leaving driveCommand::Execute()
+ In driveCommand::IsFinished()
+ Done Robot::AutonomousPeriodic() Scheduler::GetInstance()->Run();Default DisabledInit() method... Overload me!
