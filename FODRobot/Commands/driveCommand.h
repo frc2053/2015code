@@ -31,6 +31,55 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 	virtual float RotateToAngleDrive(float Angle, float Speed);
+private:
+	//Joystick Values under here
+	float XAxis;
+	float YAxis;
+	float RotateAxis;
+
+	//IMU Variables
+	float IMU_Yaw;
+	float SavedIMU;
+
+	//Saves IMU_Yaw to other variable
+	int loop_count;
+
+	//Is it moving? I can't tell!
+	bool isMoving;
+
+	int ANGLE_TOLERANCE; // Tolerance in degrees on either side of set angle
+	int DRIVE_ANGLE; // Only causing drive spins in this command - it doesn't need to know angle.  
+	int DRIVE_X; // used for translation magnitude to drive command - not used - stays 0
+	int DRIVE_Y; // used for translation magnitude to drive command - not used - stays 0
+	int LOOP_IT_CHECK; //checks for iterations through loop. Change later depending on robot
+
+	float IMU_Scaled; // Translated to a non-wrapping scale (-180 to 180 -> 820 to 1180)
+
+	float RotateAxisOverride; //Joystick value
+
+	float setSpeed; // Saves the rotation speed functional parameter passed in.
+	float setAngle; // Saves the commanded go-to angle functional parameter passed in.
+
+	float setinitSpeed; // Initial Set Speed
+	float setinitAngle; // Initial Set Angle
+
+	float degrees_to; //degrees to rotate to "Rotato" - Walter 2014
+	float degrees_to_abs; //absolute value of degrees_to
+	float setAngleScaled; // Converted value of the Commanded Set Angle to linear scale.
+	float spinDirection;  // Sets pin direction: 1=Clockwise from robot top, -1=CCW
+
+	float RotCmd; // Direction * Rot Speed passed to drive command.
+	float RotCmdInDrive; //Same as above except for drive command
+
+	bool TooFarCW; // Robot is further CW than set point: needs to spin CCW
+	bool TooFarCCW; //Robot is further CCW than set point: needs to spin CW
+
+	bool isDone; //Flag to OS/WPI to end this command.
+	bool rotateIsDone; //Rotate command is done
+
+	int times_through_loop; //counter for fixing overshooting
+
+	bool button2_pressed; //B button on xbox 360 controller
 };
 
 #endif

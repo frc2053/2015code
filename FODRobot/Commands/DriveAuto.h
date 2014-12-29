@@ -19,6 +19,13 @@ public:
 	virtual void Interrupted();
 private:
 	Timer* timer;
+	double speed_side;
+	double speed_fow;
+	double speed_rot;
+	double imu_yaw;
+	double time_run;
+	double time_timer;
+	bool isDoneDriveAuto;
 };
 
 #endif

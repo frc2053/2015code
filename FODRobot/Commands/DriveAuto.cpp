@@ -1,13 +1,8 @@
 #include "DriveAuto.h"
-double speed_side;
-double speed_fow;
-double speed_rot;
-double imu_yaw;
-double time_run;
-double time_timer = 0;
-bool isDoneDriveAuto = false;;
 
 DriveAuto::DriveAuto(double side, double fow, double rot, double yaw, double time) {
+	Requires(Robot::driveBaseSub);
+	
 	isDoneDriveAuto = false;
 	printf("\n In DriveAuto::DriveAuto");
 	
@@ -16,6 +11,8 @@ DriveAuto::DriveAuto(double side, double fow, double rot, double yaw, double tim
 	// eg. requires(chassis);
 	timer = new Timer();
 	
+	time_timer = 0;
+	isDoneDriveAuto = false;
 	speed_side = side;
 	speed_fow = fow;
 	speed_rot = rot;

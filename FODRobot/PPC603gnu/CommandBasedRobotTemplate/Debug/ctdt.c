@@ -9,15 +9,15 @@
 
 void _GLOBAL__I__ZN16AutoCommandGroupC2Ev();
 
-void _GLOBAL__I_isDoneAuto();
+void _GLOBAL__I__ZN17AutonomousCommandC2Ev();
 
-void _GLOBAL__I_speed_side();
+void _GLOBAL__I__ZN9DriveAutoC2Eddddd();
 
-void _GLOBAL__I_imu_yaw_Alone();
+void _GLOBAL__I__ZN13RotatetoAngleC2Eff();
 
 void _GLOBAL__I__ZN7ZeroYawC2Ev();
 
-void _GLOBAL__I_XAxis();
+void _GLOBAL__I__ZN12driveCommandC2Ev();
 
 void _GLOBAL__I__ZN3IMU19DecodePacketHandlerEPci();
 
@@ -85,11 +85,11 @@ extern void (*_ctors[])();
 void (*_ctors[])() =
     {
     _GLOBAL__I__ZN16AutoCommandGroupC2Ev,
-    _GLOBAL__I_isDoneAuto,
-    _GLOBAL__I_speed_side,
-    _GLOBAL__I_imu_yaw_Alone,
+    _GLOBAL__I__ZN17AutonomousCommandC2Ev,
+    _GLOBAL__I__ZN9DriveAutoC2Eddddd,
+    _GLOBAL__I__ZN13RotatetoAngleC2Eff,
     _GLOBAL__I__ZN7ZeroYawC2Ev,
-    _GLOBAL__I_XAxis,
+    _GLOBAL__I__ZN12driveCommandC2Ev,
     _GLOBAL__I__ZN3IMU19DecodePacketHandlerEPci,
     _GLOBAL__I__ZN2OIC2Ev,
     _GLOBAL__I__ZN5Robot12driveBaseSubE,
@@ -126,15 +126,15 @@ void (*_ctors[])() =
 
 void _GLOBAL__D__ZN16AutoCommandGroupC2Ev();
 
-void _GLOBAL__D_isDoneAuto();
+void _GLOBAL__D__ZN17AutonomousCommandC2Ev();
 
-void _GLOBAL__D_speed_side();
+void _GLOBAL__D__ZN9DriveAutoC2Eddddd();
 
-void _GLOBAL__D_imu_yaw_Alone();
+void _GLOBAL__D__ZN13RotatetoAngleC2Eff();
 
 void _GLOBAL__D__ZN7ZeroYawC2Ev();
 
-void _GLOBAL__D_XAxis();
+void _GLOBAL__D__ZN12driveCommandC2Ev();
 
 void _GLOBAL__D__ZN2OIC2Ev();
 
@@ -190,11 +190,11 @@ extern void (*_dtors[])();
 void (*_dtors[])() =
     {
     _GLOBAL__D__ZN16AutoCommandGroupC2Ev,
-    _GLOBAL__D_isDoneAuto,
-    _GLOBAL__D_speed_side,
-    _GLOBAL__D_imu_yaw_Alone,
+    _GLOBAL__D__ZN17AutonomousCommandC2Ev,
+    _GLOBAL__D__ZN9DriveAutoC2Eddddd,
+    _GLOBAL__D__ZN13RotatetoAngleC2Eff,
     _GLOBAL__D__ZN7ZeroYawC2Ev,
-    _GLOBAL__D_XAxis,
+    _GLOBAL__D__ZN12driveCommandC2Ev,
     _GLOBAL__D__ZN2OIC2Ev,
     _GLOBAL__D__ZN5Robot12driveBaseSubE,
     _GLOBAL__D__ZN8RobotMap25driveBaseSubFrontRightJagE,

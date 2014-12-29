@@ -12,43 +12,6 @@
 #include "RotatetoAngle.h"
 #include "math.h"
 
-const int ANGLE_TOLERANCE_ALONE = 2; // Tolerance in degrees on either side of set angle
-const int DRIVE_ANGLE_ALONE = 0; // Only causing drive spins in this command - it doesn't need to know angle.  
-const int DRIVE_X_ALONE = 0; // used for translation magnitude to drive command - not used - stays 0
-const int DRIVE_Y_ALONE = 0; // used for translation magnitude to drive command - not used - stays 0
-const int LOOP_IT_CHECK_ALONE = 5; //checks for iterations through loop. Change later depending on robot
-
-
-float imu_yaw_Alone = 0; // Measurement from the IMU
-float IMU_Scaled_Alone = 0; // Translated to a non-wrapping scale (-180 to 180 -> 820 to 1180)
-
-float RotateAxisOverride_Alone = 0; //Joystick value
-
-float setSpeed_Alone = 0; // Saves the rotation speed functional parameter passed in.
-float setAngle_Alone = 0; // Saves the commanded go-to angle functional parameter passed in.
-
-float setinitSpeed_Alone = 0; // Initial Set Speed
-float setinitAngle_Alone = 0; // Initial Set Angle
-
-float degrees_to_Alone = 0; //degrees to rotate to "Rotato" - Walter 2014
-float degrees_to_abs_Alone = 0; //absolute value of degrees_to
-float setAngleScaled_Alone = 0; // Converted value of the Commanded Set Angle to linear scale.
-float spinDirection_Alone = 1;  // Sets pin direction: 1=Clockwise from robot top, -1=CCW
-
-float RotCmd_Alone = 0; // Direction * Rot Speed passed to drive command.
-
-bool TooFarCW_Alone = false; // Robot is further CW than set point: needs to spin CCW
-bool TooFarCCW_Alone = false; //Robot is further CCW than set point: needs to spin CW
-
-bool TooFarCCWDupe_Alone = false;
-bool TooFarCWDupe_Alone = false; //Basically duplicates of variables above
-
-bool isDone_Alone = false; //Flag to OS/WPI to end this command.
-
-int times_through_loop_Alone = 0; //counter for fixing overshooting
-
-
-
 RotatetoAngle::RotatetoAngle(float Angle, float Speed) {
 	// Use requires() here to declare subsystem dependencies
 	Requires(Robot::driveBaseSub);
@@ -59,6 +22,40 @@ RotatetoAngle::RotatetoAngle(float Angle, float Speed) {
 	setinitAngle_Alone = Angle;
 	setinitSpeed_Alone = Speed;
 	
+	ANGLE_TOLERANCE_ALONE = 2; // Tolerance in degrees on either side of set angle
+	DRIVE_ANGLE_ALONE = 0; // Only causing drive spins in this command - it doesn't need to know angle.  
+	DRIVE_X_ALONE = 0; // used for translation magnitude to drive command - not used - stays 0
+	DRIVE_Y_ALONE = 0; // used for translation magnitude to drive command - not used - stays 0
+	LOOP_IT_CHECK_ALONE = 5; //checks for iterations through loop. Change later depending on robot
+
+
+	imu_yaw_Alone = 0; // Measurement from the IMU
+	IMU_Scaled_Alone = 0; // Translated to a non-wrapping scale (-180 to 180 -> 820 to 1180)
+
+	RotateAxisOverride_Alone = 0; //Joystick value
+
+	setSpeed_Alone = 0; // Saves the rotation speed functional parameter passed in.
+	setAngle_Alone = 0; // Saves the commanded go-to angle functional parameter passed in.
+
+	setinitSpeed_Alone = 0; // Initial Set Speed
+	setinitAngle_Alone = 0; // Initial Set Angle
+
+	degrees_to_Alone = 0; //degrees to rotate to "Rotato" - Walter 2014
+	degrees_to_abs_Alone = 0; //absolute value of degrees_to
+	setAngleScaled_Alone = 0; // Converted value of the Commanded Set Angle to linear scale.
+	spinDirection_Alone = 1;  // Sets pin direction: 1=Clockwise from robot top, -1=CCW
+
+	RotCmd_Alone = 0; // Direction * Rot Speed passed to drive command.
+
+	TooFarCW_Alone = false; // Robot is further CW than set point: needs to spin CCW
+	TooFarCCW_Alone = false; //Robot is further CCW than set point: needs to spin CW
+
+	TooFarCCWDupe_Alone = false;
+	TooFarCWDupe_Alone = false; //Basically duplicates of variables above
+
+	isDone_Alone = false; //Flag to OS/WPI to end this command.
+
+	times_through_loop_Alone = 0; //counter for fixing overshooting
 }
 
 // Called just before this Command runs the first time
