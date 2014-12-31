@@ -24,6 +24,7 @@
  */
 class driveCommand: public Command {
 public:
+
 	driveCommand();
 	virtual void Initialize();
 	virtual void Execute();
@@ -31,55 +32,51 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 	virtual float RotateToAngleDrive(float Angle, float Speed);
+	
+	
 private:
-	//Joystick Values under here
-	float XAxis;
-	float YAxis;
+
+	float ANGLE_TOLERANCE; // Tolerance in degrees on either side of set angle
+	float DRIVE_ANGLE; // Only causing drive spins in this command - it doesn't need to know angle.  
+	float DRIVE_X; // used for translation magnitude to drive command - not used - stays 0
+	float DRIVE_Y; // used for translation magnitude to drive command - not used - stays 0
+	float ROTATE_LOOP_CHECK; //checks for iterations through loop. Change later depending on robot
+
+	bool Button2Pressed; //B button on xbox 360 controller used to start AutoRotate
+	
+	float SetAngle; // Saves the commanded go-to angle functional parameter passed in.
+	float SetInitAngle; // Initial Set Angle for Rotation
+	
+	float SetSpeed; // Current spin speed for piece wise linear angle from set point distance
+	float MaxScalingSpeed; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
+		
+	//Default values for drive command - joystick overrides these 
+	float XAxis; 
+	float YAxis ;
 	float RotateAxis;
-
-	//IMU Variables
-	float IMU_Yaw;
-	float SavedIMU;
-
-	//Saves IMU_Yaw to other variable
-	int loop_count;
-
-	//Is it moving? I can't tell!
-	bool isMoving;
-
-	int ANGLE_TOLERANCE; // Tolerance in degrees on either side of set angle
-	int DRIVE_ANGLE; // Only causing drive spins in this command - it doesn't need to know angle.  
-	int DRIVE_X; // used for translation magnitude to drive command - not used - stays 0
-	int DRIVE_Y; // used for translation magnitude to drive command - not used - stays 0
-	int LOOP_IT_CHECK; //checks for iterations through loop. Change later depending on robot
-
+	
+	float DriverRotateAxisOverride; //Driver override AutoRotation value
+	
+	float IMU_Yaw;  //Yaw value from IMU and scaled value to eliminate
 	float IMU_Scaled; // Translated to a non-wrapping scale (-180 to 180 -> 820 to 1180)
-
-	float RotateAxisOverride; //Joystick value
-
-	float setSpeed; // Saves the rotation speed functional parameter passed in.
-	float setAngle; // Saves the commanded go-to angle functional parameter passed in.
-
-	float setinitSpeed; // Initial Set Speed
-	float setinitAngle; // Initial Set Angle
-
-	float degrees_to; //degrees to rotate to "Rotato" - Walter 2014
-	float degrees_to_abs; //absolute value of degrees_to
-	float setAngleScaled; // Converted value of the Commanded Set Angle to linear scale.
-	float spinDirection;  // Sets pin direction: 1=Clockwise from robot top, -1=CCW
-
-	float RotCmd; // Direction * Rot Speed passed to drive command.
-	float RotCmdInDrive; //Same as above except for drive command
-
+	float SetAngleScaled; // Converted value of the Commanded Set Angle to linear scale.
+	
+	int SpinDirection;  // Sets pin direction: 1=Clockwise from robot top, -1=CCW
+	float RotCmd; //Calculated rotation speed to command
+	
+	//Assume we don't need the robot to spin until proven via measurement.
 	bool TooFarCW; // Robot is further CW than set point: needs to spin CCW
 	bool TooFarCCW; //Robot is further CCW than set point: needs to spin CW
+	
+	float DegreesToSetPoint; //Number of degrees from current angle to set point
+	float DegreesToSetPointAbs; //absolute value of DegreesToSetPoint
+	
+	//Persistence of measurements of current angle to determine if system has stopped moving, overshooting
+	int TimesThroughLoop;
 
-	bool isDone; //Flag to OS/WPI to end this command.
-	bool rotateIsDone; //Rotate command is done
+	float AutoRotCmd; // Rotate command from AutoRotate calculator
 
-	int times_through_loop; //counter for fixing overshooting
-
-	bool button2_pressed; //B button on xbox 360 controller
+	bool AutoRotDone; //Rotate command is done
 };
 
 #endif

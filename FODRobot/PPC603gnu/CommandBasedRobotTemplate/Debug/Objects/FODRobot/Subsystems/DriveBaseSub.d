@@ -399,9 +399,6 @@
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/Command.h \
   C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../RobotMap.h \
   C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindow.h \
-  C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../Commands/AutonomousCommand.h \
-  C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/Subsystem.h \
-  C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../Commands/../Robot.h \
   C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../Subsystems/DriveBaseSub.h \
   C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../OI.h
 
@@ -1200,12 +1197,6 @@ C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/Command.h:
 C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../RobotMap.h:
 
 C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/LiveWindow/LiveWindow.h:
-
-C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../Commands/AutonomousCommand.h:
-
-C:/WindRiver/workspace/WPILibC++Source20140101rev3876/WPILib/Commands/Subsystem.h:
-
-C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../Commands/../Robot.h:
 
 C:/WindRiver/workspace/FODRobot/Subsystems/../Commands/../Subsystems/DriveBaseSub.h:
 

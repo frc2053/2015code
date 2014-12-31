@@ -6,7 +6,6 @@ DriveAuto::DriveAuto(double side, double fow, double rot, double yaw, double tim
 	isDoneDriveAuto = false;
 	printf("\n In DriveAuto::DriveAuto");
 	
-	
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
 	timer = new Timer();
@@ -20,13 +19,10 @@ DriveAuto::DriveAuto(double side, double fow, double rot, double yaw, double tim
 	time_run = time;
 	
 	printf("\nDriveAuto ConstVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_run);
-	
-	
 }
 
 // Called just before this Command runs the first time
 void DriveAuto::Initialize() {
-	
 	printf("\n In DriveAuto::Initialize()");
 	printf("\nDriveAuto InitVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_run);
 	
@@ -34,14 +30,12 @@ void DriveAuto::Initialize() {
 	timer->Start();
 	
 	printf("\n Done timer->Start();");
-		
-		
+
 	isDoneDriveAuto = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveAuto::Execute() {
-
 	printf("\n In DriveAuto::Execute()");
 	
 	time_timer = timer->Get();
@@ -51,13 +45,11 @@ void DriveAuto::Execute() {
 	
 	Robot::driveBaseSub->MechDrive(speed_side, speed_fow, speed_rot, imu_yaw);
 	
-	
 	if(time_timer >= time_run)
 	{
 		isDoneDriveAuto = true;
 		printf("\nisDoneDriveAuto = true;");
 	}
-	
 	else
 	{
 		isDoneDriveAuto = false;

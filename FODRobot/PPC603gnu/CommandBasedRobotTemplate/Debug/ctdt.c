@@ -9,8 +9,6 @@
 
 void _GLOBAL__I__ZN16AutoCommandGroupC2Ev();
 
-void _GLOBAL__I__ZN17AutonomousCommandC2Ev();
-
 void _GLOBAL__I__ZN9DriveAutoC2Eddddd();
 
 void _GLOBAL__I__ZN13RotatetoAngleC2Eff();
@@ -85,7 +83,6 @@ extern void (*_ctors[])();
 void (*_ctors[])() =
     {
     _GLOBAL__I__ZN16AutoCommandGroupC2Ev,
-    _GLOBAL__I__ZN17AutonomousCommandC2Ev,
     _GLOBAL__I__ZN9DriveAutoC2Eddddd,
     _GLOBAL__I__ZN13RotatetoAngleC2Eff,
     _GLOBAL__I__ZN7ZeroYawC2Ev,
@@ -125,8 +122,6 @@ void (*_ctors[])() =
     };
 
 void _GLOBAL__D__ZN16AutoCommandGroupC2Ev();
-
-void _GLOBAL__D__ZN17AutonomousCommandC2Ev();
 
 void _GLOBAL__D__ZN9DriveAutoC2Eddddd();
 
@@ -190,7 +185,6 @@ extern void (*_dtors[])();
 void (*_dtors[])() =
     {
     _GLOBAL__D__ZN16AutoCommandGroupC2Ev,
-    _GLOBAL__D__ZN17AutonomousCommandC2Ev,
     _GLOBAL__D__ZN9DriveAutoC2Eddddd,
     _GLOBAL__D__ZN13RotatetoAngleC2Eff,
     _GLOBAL__D__ZN7ZeroYawC2Ev,
