@@ -122,7 +122,7 @@ void driveCommand::Execute() {
 
 
 	//Get Joystick Values from Driver
-	XAxis = Robot::oi->getJoystick1()->GetX();
+	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	YAxis = Robot::oi->getJoystick1()->GetY();
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
 
