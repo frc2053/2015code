@@ -122,8 +122,8 @@ void driveCommand::Execute() {
 
 
 	//Get Joystick Values from Driver
-	XAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
-	YAxis = Robot::oi->getJoystick1()->GetRawAxis(2);
+	XAxis = Robot::oi->getJoystick1()->GetX();
+	YAxis = Robot::oi->getJoystick1()->GetY();
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
 
 	//Sets up deadbands (this gets rid of the robot moving very slowly
