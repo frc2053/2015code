@@ -1,5 +1,6 @@
 #include "GripperArm.h"
 #include "../RobotMap.h"
+#include "../Commands/Pneumatics.h"
 
 GripperArm::GripperArm() : Subsystem("ExampleSubsystem")
 {
@@ -10,7 +11,7 @@ GripperArm::GripperArm() : Subsystem("ExampleSubsystem")
 void GripperArm::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new Pneumatics());
 }
 
 // Put methods for controlling this subsystem
