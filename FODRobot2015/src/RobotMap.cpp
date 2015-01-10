@@ -32,7 +32,7 @@ void RobotMap::init() {
 
 	LeftGripper = new DoubleSolenoid(3,4);
 
-	winchJag = new CANJaguar(1);
+	winchJag = new CANJaguar(3);
 
 	driveBaseSubFrontRightJag = new CANJaguar(9);
 	
