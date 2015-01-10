@@ -15,3 +15,7 @@ void Winch::InitDefaultCommand()
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+void Winch::WinchMotor(float speed) {
+	Robot::winch->winchJag->Set(speed);
+}
+

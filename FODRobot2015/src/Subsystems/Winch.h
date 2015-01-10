@@ -12,6 +12,7 @@ private:
 public:
 	Winch();
 	void InitDefaultCommand();
+	void WinchMotor(float);
 	CANJaguar* winchJag;
 };
 
