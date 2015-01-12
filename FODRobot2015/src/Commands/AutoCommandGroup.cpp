@@ -18,21 +18,10 @@ AutoCommandGroup::AutoCommandGroup() {
 
 	//DriveAuto(side, fow, rot, yaw, time);
 	AddSequential(new driveAuto(0.0, -0.3, 0.0, 0.0, 2));
-	printf("\n Done AddSequential(new DriveAuto(0.0, -0.3, 0.0, 0.0, 0.3))");
 
-	AddSequential(new driveAuto(0.0, -0.2, 0.0, 0.0, 1));
+	AddSequential(new driveAuto(0.3, 0.0, 0.0, 0.0, 2));
 
-	AddSequential(new driveAuto(0.0, 0.0, 0.0, 0.0, 1));
+	AddSequential(new driveAuto(0.0, 0.3, 0.0, 0.0, 2));
 
-
-	AddSequential(new driveAuto(0.3, 0.0, 0.0, 0.0, 3));
-	printf("\n Done AddSequential(new DriveAuto(0.0, 0.4, 0.0, 0.0, 0.3)) ");
-
-	AddSequential(new driveAuto(0.0, 0.4, 0.0, 0.0, 1.5));
-	printf("\n Done AddSequential(new DriveAuto(0.5, 0.0, 0.0, 0.0, 0.3)) ");
-
-	AddSequential(new driveAuto(0.0, 0.2, 0.0, 0.0, 1.5));
-
-	AddSequential(new driveAuto(-0.3, 0.0, 0.0, 0.0, 3));
-	printf("\n Done AddSequential(new DriveAuto(0.5, 0.0, 0.0, 0.0, 0.3)) ");
+	AddSequential(new driveAuto(-0.3, 0.0, 0.0, 0.0, 2));
 }
