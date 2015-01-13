@@ -63,6 +63,7 @@ void Robot::DisabledPeriodic() {
 
 void Robot::AutonomousInit() {
 	if (autonomousCommand != NULL)
+		autonomousCommand = (Command *) autoChooser->GetSelected();
 		autonomousCommand->Start();
 }
 
