@@ -120,7 +120,6 @@ void driveCommand::Execute() {
 	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
 	SmartDashboard::PutNumber("Angle of Robot", IMU_Yaw);
 
-
 	//Get Joystick Values from Driver
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(0);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(1);

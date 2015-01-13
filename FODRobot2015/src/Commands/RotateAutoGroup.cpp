@@ -14,7 +14,7 @@
 #include "driveAuto.h"
 #include "RotatetoAngle.h"
 
-AutoCommandGroup::AutoCommandGroup() {
+RotateAutoGroup::RotateAutoGroup() {
 	printf("\n In AutoCommandGroup::AutoCommandGroup() ");
 	//DriveAuto(side, fow, rot, yaw, time);
 
