@@ -1,2 +1,2 @@
 IMU RS232 config
-console out checkbox must be OFF
+console out checkbox on roboRIO webdashboard must be OFF
