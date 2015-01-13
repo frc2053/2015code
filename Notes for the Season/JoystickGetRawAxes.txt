@@ -1,0 +1,6 @@
+0 = Xaxis (left stick sides)
+1 = Yaxis (left stick forward/back)
+2 = left trigger
+3 = right trigger
+4 = rotate (right stick sides)
+5 = right stick forward

@@ -1,0 +1,2 @@
+IMU RS232 config
+console out checkbox must be OFF
