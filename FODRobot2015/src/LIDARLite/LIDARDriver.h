@@ -1,22 +1,16 @@
-//Drew Williams
-//Team 2053 Tigertronics
-//FOD Robot LIDAR Driver
-//Port LIDAR Driver to C++
-//1/13/15
-
-#include "PIDSource.h"
-#include "SerialPort.h"
-#include "Task.h"
-#include "WPILib.h"
-
-#ifndef SRC_LIDARLITE_LIDARDRIVER_H_
+/*#ifndef SRC_LIDARLITE_LIDARDRIVER_H_
 #define SRC_LIDARLITE_LIDARDRIVER_H_
 
 class LIDAR
 {
-protected:
-	I2C *pIC2;
+private:
+	I2C i2c;
 	unsigned short distance [];
+	Timer *Timer;
+
+	const int LIDAR_ADDR = 0x62;
+	const int LIDAR_CONFIG_REGISTER = 0x00;
+	const int LIDAR_DISTANCE_REGISTER = 0x8f;
 };
 
 
