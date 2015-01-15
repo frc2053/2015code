@@ -1,21 +1,38 @@
 #include "FullAutoShort.h"
+#include "driveAuto.h"
+#include "WinchAuto.h"
+#include "PneumaticsAutoClose.h"
+#include "PneumaticsAutoOpen.h"
+#include "RotatetoAngle.h"
 
 FullAutoShort::FullAutoShort()
 {
-	// Add Commands here:
-	// e.g. AddSequential(new Command1());
-	//      AddSequential(new Command2());
-	// these will run in order.
+	//Grab first tote then move to the next one while raising the first
+	AddSequential(new PneumaticsAutoClose(true,true));
+	AddParallel(new driveAuto(0.0,-0.5,0.0,0.0,1.5));
+	AddSequential(new WinchAuto(0.5,1));
 
-	// To run multiple commands at the same time,
-	// use AddParallel()
-	// e.g. AddParallel(new Command1());
-	//      AddSequential(new Command2());
-	// Command1 and Command2 will run in parallel.
+	//drop first tote on second tote, then pick up second tote
+	AddParallel(new PneumaticsAutoOpen(true,true));
+	AddSequential(new WinchAuto(-0.5,1));
+	AddSequential(new PneumaticsAutoClose(true,true));
 
-	// A command group will require all of the subsystems that each member
-	// would require.
-	// e.g. if Command1 requires chassis, and Command2 requires arm,
-	// a CommandGroup containing them would require both the chassis and the
-	// arm.
+	//move to final tote
+	AddParallel(new driveAuto(0.0,-0.5,0.0,0.0,1.5));
+	AddSequential(new WinchAuto(0.5,1));
+
+	//drop first and second totes(ma-goats) on final tote, then grab final tote
+	AddParallel(new PneumaticsAutoOpen(true,true));
+	AddSequential(new WinchAuto(-0.5,1));
+	AddSequential(new PneumaticsAutoClose(true,true));
+
+	//lift all totes(ma-goats) slightly while also moving into auto zone
+	AddParallel(new WinchAuto(0.5,0.25));
+	//AddParallel(new RotatetoAngle(90,1);
+	AddSequential(new driveAuto(1.0,0.0,0.0,0.0,2));
+
+	//drop totes and back away
+	AddParallel(new WinchAuto(-0.5,0.25));
+	AddSequential(new PneumaticsAutoOpen(true,true));
+	AddSequential(new driveAuto(0.0,0.4,0.0,0.0,0.25));
 }
