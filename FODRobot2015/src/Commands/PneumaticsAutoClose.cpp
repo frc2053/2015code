@@ -4,9 +4,9 @@ PneumaticsAutoClose::PneumaticsAutoClose(bool left, bool right)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(Robot::gripperArm);
+	timer = new Timer();
 	time_timer = 0;
 	time_run = PNEUMATIC_DELAY;
-	timer = new Timer();
 	PneumaticsDone = false;
 	leftArm = left;
 	rightArm = right;
@@ -17,7 +17,6 @@ void PneumaticsAutoClose::Initialize()
 {
 	time_timer = 0;
 	time_run = 0;
-	timer = 0;
 	timer->Reset();
 	timer->Start();
 	PneumaticsDone = false;
@@ -26,14 +25,6 @@ void PneumaticsAutoClose::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void PneumaticsAutoClose::Execute()
 {
-	if(leftArm == true)
-	{
-		Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kForward);
-	}
-	if(rightArm == true)
-	{
-		Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kForward);
-	}
 	time_timer = timer->Get();
 	if(time_timer >= time_run)
 	{
@@ -42,6 +33,14 @@ void PneumaticsAutoClose::Execute()
 	else
 	{
 		PneumaticsDone = false;
+	}
+	if(leftArm == true)
+	{
+		Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kForward);
+	}
+	if(rightArm == true)
+	{
+		Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kForward);
 	}
 }
 

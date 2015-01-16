@@ -58,6 +58,7 @@ void driveAuto::Execute() {
 
 	if(time_timer >= time_run)
 	{
+		Robot::driveBaseSub->MechDrive(0,0,0,0);
 		isDoneDriveAuto = true;
 		printf("\nisDoneDriveAuto = true;");
 	}
@@ -88,7 +89,6 @@ bool driveAuto::IsFinished() {
 // Called once after isFinished returns true
 void driveAuto::End() {
 	printf("\n In DriveAuto::End()");
-
 	timer->Stop();
 	printf("drive auto over.");
 	
