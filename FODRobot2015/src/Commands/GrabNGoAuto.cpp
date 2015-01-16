@@ -1,6 +1,7 @@
 #include "GrabNGoAuto.h"
 #include "driveAuto.h"
 #include "PneumaticsAutoClose.h"
+#include "PneumaticsAutoOpen.h"
 
 GrabNGoAuto::GrabNGoAuto()
 {
@@ -8,4 +9,6 @@ GrabNGoAuto::GrabNGoAuto()
 	AddSequential(new PneumaticsAutoClose(true, true));
 
 	AddSequential(new driveAuto(0.0, -0.5, 0.0, 0.0, 2));
+
+	AddSequential(new PneumaticsAutoOpen(true, true));
 }

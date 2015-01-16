@@ -25,6 +25,7 @@ void WinchAuto::Execute()
 	Robot::winch->WinchMotor(speed);
 	if(time_timer >= time_run)
 	{
+		Robot::winch->WinchMotor(0);
 		isDoneWinchAuto = true;
 	}
 	else
