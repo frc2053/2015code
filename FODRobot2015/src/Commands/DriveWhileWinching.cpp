@@ -4,6 +4,9 @@
 
 DriveWhileWinching::DriveWhileWinching(double side, double fow, double rot, double yaw, double time, double speedWinch, double timeWinch)
 {
+	printf("DriveWhileWinching 0");
 	AddParallel(new driveAuto(side, fow, rot,  yaw, time));
+	printf("DriveWhileWinching 1");
 	AddParallel(new WinchAuto(speedWinch, timeWinch));
+	printf("DriveWhileWinching 2");
 }

@@ -10,6 +10,7 @@ PneumaticsAutoClose::PneumaticsAutoClose(bool left, bool right)
 	PneumaticsDone = false;
 	leftArm = left;
 	rightArm = right;
+	printf("PneumaticsAutoClose 0");
 }
 
 // Called just before this Command runs the first time

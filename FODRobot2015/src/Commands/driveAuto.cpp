@@ -28,8 +28,7 @@ driveAuto::driveAuto(double side, double fow, double rot, double yaw, double tim
 	speed_rot = rot;
 	imu_yaw = yaw;
 	time_run = time;
-
-	printf("\nDriveAuto ConstVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_run);
+	printf("driveAuto 0");
 }
 
 // Called just before this Command runs the first time

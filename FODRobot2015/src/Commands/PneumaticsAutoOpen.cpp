@@ -10,6 +10,7 @@ PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right)
 	PneumaticsDone = false;
 	leftArm = left;
 	rightArm = right;
+	printf("PneumaticsAutoOpen 0");
 }
 
 // Called just before this Command runs the first time
