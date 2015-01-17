@@ -181,6 +181,7 @@ void driveCommand::Execute() {
 	//Driver rotation
 	else
 	{
+		//Negative x and y because of the joystick
 		Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
 		TimesThroughLoop = 0;  //reset the loop/overshoot counter any time driver overrides
 		AutoRotDone = true;

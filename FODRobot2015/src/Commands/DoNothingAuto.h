@@ -3,6 +3,7 @@
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "../Robot.h"
 
 class DoNothingAuto: public Command
 {

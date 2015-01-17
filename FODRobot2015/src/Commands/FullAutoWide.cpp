@@ -31,8 +31,8 @@ FullAutoWide::FullAutoWide()
 	AddSequential(new PneumaticsAutoOpen(true, true));
 
 	//lowers winch to first level
-	AddSequential(new WinchAuto(-0.5, 1));
-	AddSequential(new WinchAuto(0.0, 0.0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.0, -0.5, 1));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
 
 	//grabs second tote
 	AddSequential(new PneumaticsAutoClose(true, true));
@@ -53,8 +53,8 @@ FullAutoWide::FullAutoWide()
 	AddSequential(new PneumaticsAutoOpen(true, true));
 
 	//lowers winch to first level
-	AddSequential(new WinchAuto(-0.5, 1));
-	AddSequential(new WinchAuto(0.0, 0.0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.0, -0.5, 1));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
 
 	//grabs third tote
 	AddSequential(new PneumaticsAutoClose(true, true));

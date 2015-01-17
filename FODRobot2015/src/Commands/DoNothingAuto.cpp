@@ -2,6 +2,7 @@
 
 DoNothingAuto::DoNothingAuto()
 {
+	Requires(Robot::driveBaseSub);
 	time_timer = 0;
 	time_run = 15;
 	timer = new Timer();
