@@ -13,7 +13,7 @@ DoNothingAuto::DoNothingAuto()
 void DoNothingAuto::Initialize()
 {
 	time_timer = 0;
-	time_run = 0;
+	time_run = 15;
 	timer = 0;
 	timer->Reset();
 	timer->Start();
