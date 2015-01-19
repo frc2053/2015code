@@ -6,6 +6,7 @@ Pneumatics::Pneumatics()
 	Requires(Robot::gripperArm);
 	right_Bumper = false;
 	left_Bumper = false;
+	printf("Pneumatics constructor");
 }
 
 // Called just before this Command runs the first time
@@ -13,11 +14,13 @@ void Pneumatics::Initialize()
 {
 	right_Bumper = false;
 	left_Bumper = false;
+	printf("Pneumatics Initialize");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Pneumatics::Execute()
 {
+	printf("Pneumatics Execute");
 	right_Bumper = Robot::oi->joystick2->GetRawButton(5);
 	left_Bumper = Robot::oi->joystick2->GetRawButton(6);
 
@@ -37,13 +40,14 @@ void Pneumatics::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool Pneumatics::IsFinished()
 {
+	printf("Pneumatics is finished");
 	return false;
 }
 
 // Called once after isFinished returns true
 void Pneumatics::End()
 {
-
+	printf("Pneumatics end");
 }
 
 // Called when another command which requires one or more of the same
