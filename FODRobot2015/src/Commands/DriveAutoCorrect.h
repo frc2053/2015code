@@ -23,7 +23,7 @@
  */
 class DriveAutoCorrect: public Command {
 public:
-	DriveAutoCorrect(double side, double fow, double rot, double yaw, double time);
+	DriveAutoCorrect(double side, double fow, double rot, double yaw, double time, double Angle);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
