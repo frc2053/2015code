@@ -28,7 +28,7 @@ driveAuto::driveAuto(double side, double fow, double rot, double yaw, double tim
 	speed_rot = rot;
 	imu_yaw = yaw;
 	time_run = time;
-	printf("driveAuto 0");
+	printf("driveAuto 0\n");
 }
 
 // Called just before this Command runs the first time

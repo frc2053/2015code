@@ -37,10 +37,10 @@ void RobotMap::init() {
 	driveBaseSubFrontRightJag = new CANJaguar(6);
 	
 	
-	driveBaseSubFrontLeftJag = new CANJaguar(2);
+	driveBaseSubFrontLeftJag = new CANJaguar(8);
 	
 	
-	driveBaseSubBackRightJag = new CANJaguar(8);
+	driveBaseSubBackRightJag = new CANJaguar(2);
 	
 	
 	driveBaseSubBackLeftJag = new CANJaguar(9);

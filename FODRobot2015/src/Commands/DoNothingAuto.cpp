@@ -23,6 +23,7 @@ void DoNothingAuto::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DoNothingAuto::Execute()
 {
+	Robot::driveBaseSub->MechDrive(0,0,0,0);
 	time_timer = timer->Get();
 	if(time_timer >= time_run)
 	{
