@@ -8,7 +8,7 @@
 class PneumaticsAutoOpen: public Command
 {
 public:
-	PneumaticsAutoOpen(bool left, bool right);
+	PneumaticsAutoOpen(bool left, bool right, bool oc);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -22,6 +22,7 @@ private:
 	double const PNEUMATIC_DELAY = 0.05;
 	bool leftArm;
 	bool rightArm;
+	bool open_close;
 };
 
 #endif

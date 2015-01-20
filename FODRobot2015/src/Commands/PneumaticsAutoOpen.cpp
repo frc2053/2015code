@@ -1,6 +1,6 @@
 #include "PneumaticsAutoOpen.h"
 
-PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right)
+PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right, bool oc)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(Robot::gripperArm);
@@ -10,6 +10,7 @@ PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right)
 	PneumaticsDone = false;
 	leftArm = left;
 	rightArm = right;
+	open_close = oc;
 	printf("PneumaticsAutoOpen 0");
 }
 
@@ -17,7 +18,7 @@ PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right)
 void PneumaticsAutoOpen::Initialize()
 {
 	time_timer = 0;
-	time_run = 0;
+	time_run = PNEUMATIC_DELAY;
 	timer = 0;
 	timer->Reset();
 	timer->Start();
@@ -27,14 +28,29 @@ void PneumaticsAutoOpen::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void PneumaticsAutoOpen::Execute()
 {
-	if(leftArm == true)
+	if(open_close == true)
 	{
-		Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kReverse);
+		if(leftArm == true)
+		{
+			Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kForward);
+		}
+		if(rightArm == true)
+		{
+			Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kForward);
+		}
 	}
-	if(rightArm == true)
+	if(open_close == false)
 	{
-		Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kReverse);
+		if(leftArm == true)
+		{
+			Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kReverse);
+		}
+		if(rightArm == true)
+		{
+			Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kReverse);
+		}
 	}
+
 	time_timer = timer->Get();
 	if(time_timer >= time_run)
 	{
