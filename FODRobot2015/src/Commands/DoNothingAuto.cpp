@@ -14,7 +14,6 @@ void DoNothingAuto::Initialize()
 {
 	time_timer = 0;
 	time_run = 15;
-	timer = 0;
 	timer->Reset();
 	timer->Start();
 	NothingDone = false;
@@ -23,8 +22,8 @@ void DoNothingAuto::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DoNothingAuto::Execute()
 {
-	Robot::driveBaseSub->MechDrive(0,0,0,0);
 	time_timer = timer->Get();
+	printf("timer %3.2f" ,time_timer);
 	if(time_timer >= time_run)
 	{
 		NothingDone = true;

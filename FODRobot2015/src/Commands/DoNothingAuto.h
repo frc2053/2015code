@@ -17,7 +17,7 @@ public:
 private:
 	Timer* timer;
 	double time_run;
-	double time_timer;
+	float time_timer;
 	bool NothingDone;
 };
 

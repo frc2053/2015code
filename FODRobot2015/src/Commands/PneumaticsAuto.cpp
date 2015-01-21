@@ -23,6 +23,7 @@ void PneumaticsAuto::Initialize()
 	timer->Reset();
 	timer->Start();
 	PneumaticsDone = false;
+	open_close = false;
 }
 
 // Called repeatedly when this Command is scheduled to run

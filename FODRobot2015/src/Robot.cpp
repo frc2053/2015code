@@ -67,10 +67,8 @@ void Robot::DisabledPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-	printf("Really cool");
 	autonomousCommand = (Command *) autoChooser->GetSelected();
 	if (autonomousCommand != NULL) {
-		printf("Howdee Doode");
 		autonomousCommand->Start();
 	}
 
