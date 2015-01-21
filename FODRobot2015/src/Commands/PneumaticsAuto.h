@@ -1,14 +1,14 @@
-#ifndef PneumaticsAutoOpen_H
-#define PneumaticsAutoOpen_H
+#ifndef PneumaticsAuto_H
+#define PneumaticsAuto_H
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "../Robot.h"
 
-class PneumaticsAutoOpen: public Command
+class PneumaticsAuto: public Command
 {
 public:
-	PneumaticsAutoOpen(bool left, bool right, bool oc);
+	PneumaticsAuto(bool left, bool right, bool oc);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

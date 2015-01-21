@@ -1,6 +1,6 @@
-#include "PneumaticsAutoOpen.h"
+#include <Commands/PneumaticsAuto.h>
 
-PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right, bool oc)
+PneumaticsAuto::PneumaticsAuto(bool left, bool right, bool oc)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(Robot::gripperArm);
@@ -11,11 +11,11 @@ PneumaticsAutoOpen::PneumaticsAutoOpen(bool left, bool right, bool oc)
 	leftArm = left;
 	rightArm = right;
 	open_close = oc;
-	printf("PneumaticsAutoOpen 0");
+	printf("PneumaticsAuto 0");
 }
 
 // Called just before this Command runs the first time
-void PneumaticsAutoOpen::Initialize()
+void PneumaticsAuto::Initialize()
 {
 	time_timer = 0;
 	time_run = PNEUMATIC_DELAY;
@@ -26,7 +26,7 @@ void PneumaticsAutoOpen::Initialize()
 }
 
 // Called repeatedly when this Command is scheduled to run
-void PneumaticsAutoOpen::Execute()
+void PneumaticsAuto::Execute()
 {
 	if(open_close == true)
 	{
@@ -63,20 +63,20 @@ void PneumaticsAutoOpen::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool PneumaticsAutoOpen::IsFinished()
+bool PneumaticsAuto::IsFinished()
 {
 	return PneumaticsDone;
 }
 
 // Called once after isFinished returns true
-void PneumaticsAutoOpen::End()
+void PneumaticsAuto::End()
 {
 	timer->Stop();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void PneumaticsAutoOpen::Interrupted()
+void PneumaticsAuto::Interrupted()
 {
 
 }
