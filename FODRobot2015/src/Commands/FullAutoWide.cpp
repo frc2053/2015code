@@ -16,7 +16,8 @@ FullAutoWide::FullAutoWide()
 	AddSequential(new PneumaticsAuto(true, true, true));
 	printf("Auto Wide 1\n");
 	//drives back from first tote while winching
-	AddSequential(new DriveWhileWinching(0.0, 0.2, 0.0, 0.0, 5, 0.2, 1));
+	AddSequential(new DriveWhileWinching(0.0, 0.2, 0.0, 0.0, 5, 0.5, 1));
+	printf("Auto Wide 1.5\n");
 	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0));
 	printf("Auto Wide 2\n");
 	//driving to second tote

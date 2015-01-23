@@ -2,10 +2,11 @@
 #include "../RobotMap.h"
 #include "../Commands/Pneumatics.h"
 
-GripperArm::GripperArm() : Subsystem("ExampleSubsystem")
+GripperArm::GripperArm() : Subsystem("GripperArm")
 {
 	rightGripper = RobotMap::RightGripper;
 	leftGripper = RobotMap::LeftGripper;
+	printf("GripperArmSub constructor\n");
 }
 
 void GripperArm::InitDefaultCommand()

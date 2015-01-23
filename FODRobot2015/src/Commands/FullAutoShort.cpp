@@ -14,7 +14,7 @@ FullAutoShort::FullAutoShort()
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0));
 
 	//drop first tote on second tote, then pick up second tote
-	AddParallel(new PneumaticsAuto(true,true, false));
+	AddSequential(new PneumaticsAuto(true,true, false));
 	AddSequential(new WinchAuto(-0.5,1));
 	AddSequential(new WinchAuto(0.0,0));
 	AddSequential(new PneumaticsAuto(true,true, true));
@@ -36,8 +36,8 @@ FullAutoShort::FullAutoShort()
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0));
 
 	//drop totes and back away
-	AddParallel(new WinchAuto(-0.5,0.25));
+	AddSequential(new WinchAuto(-0.5,0.25));
 	AddSequential(new PneumaticsAuto(true,true, false));
 	AddSequential(new DriveWhileWinching(0.0,0.4,0.0,0.0,0.25,0.0,0.0));
-	AddParallel(new driveAuto(0.0,0.0,0.0,0.0,0.0));
+	AddSequential(new driveAuto(0.0,0.0,0.0,0.0,0.0));
 }

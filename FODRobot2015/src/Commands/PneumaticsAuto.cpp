@@ -11,15 +11,15 @@ PneumaticsAuto::PneumaticsAuto(bool left, bool right, bool oc)
 	leftArm = left;
 	rightArm = right;
 	open_close = oc;
-	printf("PneumaticsAuto 0");
+	printf("PneumaticsAuto const\n");
 }
 
 // Called just before this Command runs the first time
 void PneumaticsAuto::Initialize()
 {
+	printf("PneumaticsAuto init\n");
 	time_timer = 0;
 	time_run = PNEUMATIC_DELAY;
-	timer = 0;
 	timer->Reset();
 	timer->Start();
 	PneumaticsDone = false;
@@ -29,6 +29,17 @@ void PneumaticsAuto::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void PneumaticsAuto::Execute()
 {
+	printf("PneumaticsAuto execute\n");
+	time_timer = timer->Get();
+	if(time_timer >= time_run)
+	{
+		PneumaticsDone = true;
+	}
+	else
+	{
+		PneumaticsDone = false;
+	}
+
 	if(open_close == true)
 	{
 		if(leftArm == true)
@@ -51,27 +62,20 @@ void PneumaticsAuto::Execute()
 			Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kReverse);
 		}
 	}
-
-	time_timer = timer->Get();
-	if(time_timer >= time_run)
-	{
-		PneumaticsDone = true;
-	}
-	else
-	{
-		PneumaticsDone = false;
-	}
+	printf("PnuematicsDone = %d", PneumaticsDone);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool PneumaticsAuto::IsFinished()
 {
+	printf("PneumaticsAuto isFinished\n");
 	return PneumaticsDone;
 }
 
 // Called once after isFinished returns true
 void PneumaticsAuto::End()
 {
+	printf("PneumaticsAuto end\n");
 	timer->Stop();
 }
 
@@ -79,5 +83,5 @@ void PneumaticsAuto::End()
 // subsystems is scheduled to run
 void PneumaticsAuto::Interrupted()
 {
-
+	printf("PneumaticsAuto interuppted\n");
 }

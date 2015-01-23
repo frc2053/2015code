@@ -5,6 +5,7 @@
 Winch::Winch() : Subsystem("Winch")
 {
 	winchJag = RobotMap::winchJag;
+	printf("winchSub constructor\n");
 }
 
 void Winch::InitDefaultCommand()
