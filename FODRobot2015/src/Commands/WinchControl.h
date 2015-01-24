@@ -17,6 +17,7 @@ private:
 	float winchUp;		//used to set speed if winch is going up
 	float winchDown;	//used to set speed if winch is going down
 	float winchSpeed;	//sets the speed at which the winch turns
+	bool isClosed;
 };
 
 #endif

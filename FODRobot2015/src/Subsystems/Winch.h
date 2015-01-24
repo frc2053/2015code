@@ -14,6 +14,7 @@ public:
 	void InitDefaultCommand();
 	void WinchMotor(float);
 	CANJaguar* winchJag;
+	DigitalInput* bottomSwitch;
 };
 
 #endif
