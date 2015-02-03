@@ -1,5 +1,5 @@
-#include "Vision2015/Contour.h"
-#include "Vision2015/utils.h"
+#include "Contour.h"
+#include "utils.h"
 
 /* Draw a single contour to the given matrix. */
 void drawContour(Contour *contour, Mat *img)
