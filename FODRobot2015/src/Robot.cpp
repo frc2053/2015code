@@ -100,7 +100,11 @@ void Robot::TeleopPeriodic() {
 	VideoCapture vidcap;
 	vidcap.open(videoStreamAddress);
 	vidcap >> frame;
-	imwrite("/tmp/frame.jpg", frame);
+	vector<int> param = vector<int>(2);
+	param[0] = CV_IMWRITE_JPEG_QUALITY;
+	param[1] = 80;
+	vector<uchar> img_data;
+	imwrite("/tmp/frame.jpg", imencode(".jpg", frame, img_data, param));
 }
 
 void Robot::TestPeriodic() {
