@@ -95,7 +95,7 @@ float YellowToteFinder::getDistanceToTote()
     //
     //
     
-    float dist = 2760.0 / rectTote.width;
+    float dist = (2760.0 / rectTote.width) * 7;
     cout << "rect.width = " << rectTote.width << endl;
     return dist;
 }
