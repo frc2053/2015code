@@ -96,9 +96,11 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	Mat frame;
+	Mat bw;
 	VideoCapture vidcap;
 	vidcap.open(videoStreamAddress);
 	vidcap >> frame;
+	cvtColor(frame, bw, CV_BGR2GRAY);
 	YellowToteFinder ytf = YellowToteFinder();
 	bool found = ytf.findTote(&frame);
 	float inches_away = ytf.getDistanceToTote();
@@ -110,11 +112,34 @@ void Robot::TeleopPeriodic() {
 	{
 		cout << "We did not find a tote!" << endl;
 	}
-	/*vector<int> param = vector<int>(2);
-	param[0] = CV_IMWRITE_JPEG_QUALITY;
-	param[1] = 80;
-	vector<uchar> img_data;
-	imwrite("/tmp/frame.jpg", imencode(".jpg", frame, img_data, param));*/
+
+	if(!frame.isContinuous())
+	{
+		cout << "Not Continuous!" << endl;
+		frame = frame.clone();
+	}
+
+	//std::vector<uchar> array(frame.rows*frame.cols);
+	//array = frame.data;
+	vector<uchar> array;
+
+	//array.assign(frame.datastart,frame.dataend);
+	array.assign(bw.datastart,bw.dataend);
+
+	//char* carray = (char*)&array[0];
+
+	Image* myImaqImage = imaqCreateImage(IMAQ_IMAGE_U8,  0);
+
+	int rc = imaqArrayToImage(myImaqImage, bw.data, frame.cols, frame.rows);
+
+	cout << "ArrayToImage Exploded! rc=" << rc << endl;
+
+	CameraServer::GetInstance()->SetImage(myImaqImage);
+	cout << "Material Depth: " << bw.depth() << endl;
+	cout << "Channels: " << bw.channels() << endl;
+	cout << "DataSize: " << bw.dataend - bw.datastart << endl;
+	cout << "frame r & c: " << frame.rows << " "<< frame.cols << endl;
+	cout << "BW r & c: " << bw.rows << " "<< bw.cols << endl;
 }
 
 void Robot::TestPeriodic() {
