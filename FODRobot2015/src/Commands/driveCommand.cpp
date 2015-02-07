@@ -12,7 +12,7 @@
 #include "driveCommand.h"
 
 driveCommand::driveCommand() {
-	printf("\n In driveCommand::driveCommand()");
+	//printf("\n In driveCommand::driveCommand()");
 
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -54,7 +54,7 @@ driveCommand::driveCommand() {
 
 // Called just before this Command runs the first time
 void driveCommand::Initialize() {
-	printf("\n In driveCommand::Initialize");
+	//printf("\n In driveCommand::Initialize");
 
 	Button2Pressed = false; //B button on xbox 360 controller used to start AutoRotate
 
@@ -93,13 +93,13 @@ void driveCommand::Initialize() {
 	AutoRotDone = true; //Rotate command is done
 
 
-	printf("\n Done driveCommand::Initialize()");
+	//printf("\n Done driveCommand::Initialize()");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
 
-	printf("\n In driveCommand::Execute(");
+	//printf("\n In driveCommand::Execute(");
 
 	//Set the value back from the Autorotate command to zero for each passd through the loop
 	AutoRotCmd = 0;
@@ -176,7 +176,7 @@ void driveCommand::Execute() {
 	{
 		Robot::driveBaseSub->MechDrive(XAxis,YAxis,AutoRotCmd,IMU_Yaw);
 
-		printf("\n Command Drive with AutoRotate");
+		//printf("\n Command Drive with AutoRotate");
 	}
 	//Driver rotation
 	else
@@ -186,18 +186,18 @@ void driveCommand::Execute() {
 		TimesThroughLoop = 0;  //reset the loop/overshoot counter any time driver overrides
 		AutoRotDone = true;
 
-		printf("\n Command Drive with Driver / Joystick Rotation (If Any)");
+		//printf("\n Command Drive with Driver / Joystick Rotation (If Any)");
 	}
 
 
-	printf("\n Leaving driveCommand::Execute()");
+	//printf("\n Leaving driveCommand::Execute()");
 
 
 }
 
 float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 
-	printf("\n In driveCommand::RotateToAngleDrive");
+	//printf("\n In driveCommand::RotateToAngleDrive");
 
 	AutoRotDone = false; // Just started - can't be done yet
 
@@ -222,7 +222,7 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 
 	//Scale Set Angle
 	SetAngleScaled = SetInitAngle + 1000;
-	printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
+	//printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
 
 	//set spin direction and degrees to rotate to
 	if(IMU_Scaled > (SetAngleScaled + ANGLE_TOLERANCE)) {
@@ -269,14 +269,14 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 		//We need to spin, so set counter to 1 - it shouldn't increment until it has previously spun then come to rest
 		TimesThroughLoop = 1;
 
-		printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
+		//printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
 
 	}
 
 
 	// If we didn't need to spin, we can end the command now.
 	else {
-		printf("\n(DriveRotateLoop) Didn't need to spin.");
+		//printf("\n(DriveRotateLoop) Didn't need to spin.");
 		// either the robot has stabilized for so long after rotating or it never rotated to begin with
 		if(TimesThroughLoop == ROTATE_LOOP_CHECK || TimesThroughLoop == 0)
 		{
@@ -284,7 +284,7 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 			// reset the loop counter now that the rotation is complete and stable
 			TimesThroughLoop = 0;
 			RotCmd = 0;
-			printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
+			//printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
 		}
 
 		//robot is within tolerance but hasn't yet been stable for the timeout
@@ -292,25 +292,25 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 
 	}
 
-	printf("\n Leaving driveCommand::RotateToAngleDrive");
+	//printf("\n Leaving driveCommand::RotateToAngleDrive");
 	return RotCmd;
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool driveCommand::IsFinished() {
-	printf("\n In driveCommand::IsFinished()");
+	//printf("\n In driveCommand::IsFinished()");
 	return false;
 }
 
 // Called once after isFinished returns true
 void driveCommand::End() {
-	printf("\n In driveCommand::End()");
+	//printf("\n In driveCommand::End()");
 	Robot::driveBaseSub->MechDrive(0,0,0,0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void driveCommand::Interrupted() {
-	printf("\n In driveCommand::Interrupted()");
+	//printf("\n In driveCommand::Interrupted()");
 	Robot::driveBaseSub->MechDrive(0,0,0,0);
 }

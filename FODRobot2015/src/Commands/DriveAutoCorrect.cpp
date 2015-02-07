@@ -12,7 +12,7 @@
 #include "DriveAutoCorrect.h"
 
 DriveAutoCorrect::DriveAutoCorrect(double side, double fow, double rot, double yaw, double time, double Angle) {
-	printf("\n In DriveAutoCorrect::DriveAutoCorrect()");
+	//printf("\n In DriveAutoCorrect::DriveAutoCorrect()");
 
 	// Use requires() here to declare subsystem dependencies
 	Requires(Robot::driveBaseSub);
@@ -104,13 +104,13 @@ void DriveAutoCorrect::Initialize() {
 	AutoRotDone = true; //Rotate command is done
 
 
-	printf("\n Done DriveAutoCorrect::Initialize()");
+	//printf("\n Done DriveAutoCorrect::Initialize()");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveAutoCorrect::Execute() {
 
-	printf("\n In DriveAutoCorrect::Execute(");
+	//printf("\n In DriveAutoCorrect::Execute(");
 
 	time_timer = timer->Get();
 
@@ -141,7 +141,7 @@ void DriveAutoCorrect::Execute() {
 	//Auto Rotation
 		Robot::driveBaseSub->MechDrive(XAxis,YAxis,AutoRotCmd,IMU_Yaw);
 
-		printf("\n Command Drive with AutoRotate");
+		//printf("\n Command Drive with AutoRotate");
 
 		if(time_timer >= time_run)
 		{
@@ -156,7 +156,7 @@ void DriveAutoCorrect::Execute() {
 
 float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 
-	printf("\n In DriveAutoCorrect::RotateToAngleDrive");
+	//printf("\n In DriveAutoCorrect::RotateToAngleDrive");
 
 	AutoRotDone = false; // Just started - can't be done yet
 
@@ -179,7 +179,7 @@ float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 
 	//Scale Set Angle
 	SetAngleScaled = SetInitAngle + 1000;
-	printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
+	//printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
 
 	//set spin direction and degrees to rotate to
 	if(IMU_Scaled > (SetAngleScaled + ANGLE_TOLERANCE)) {
@@ -226,14 +226,14 @@ float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 		//We need to spin, so set counter to 1 - it shouldn't increment until it has previously spun then come to rest
 		TimesThroughLoop = 1;
 
-		printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
+		//printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
 
 	}
 
 
 	// If we didn't need to spin, we can end the command now.
 	else {
-		printf("\n(DriveRotateLoop) Didn't need to spin.");
+		//printf("\n(DriveRotateLoop) Didn't need to spin.");
 		// either the robot has stabilized for so long after rotating or it never rotated to begin with
 		if(TimesThroughLoop == ROTATE_LOOP_CHECK || TimesThroughLoop == 0)
 		{
@@ -241,7 +241,7 @@ float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 			// reset the loop counter now that the rotation is complete and stable
 			TimesThroughLoop = 0;
 			RotCmd = 0;
-			printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
+			//printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
 		}
 
 		//robot is within tolerance but hasn't yet been stable for the timeout
@@ -249,25 +249,25 @@ float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 
 	}
 
-	printf("\n Leaving DriveAutoCorrect::RotateToAngleDrive");
+	//printf("\n Leaving DriveAutoCorrect::RotateToAngleDrive");
 	return RotCmd;
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveAutoCorrect::IsFinished() {
-	printf("\n In DriveAutoCorrect::IsFinished()");
+	//printf("\n In DriveAutoCorrect::IsFinished()");
 	return false;
 }
 
 // Called once after isFinished returns true
 void DriveAutoCorrect::End() {
-	printf("\n In DriveAutoCorrect::End()");
+	//printf("\n In DriveAutoCorrect::End()");
 	Robot::driveBaseSub->MechDrive(0,0,0,0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void DriveAutoCorrect::Interrupted() {
-	printf("\n In DriveAutoCorrect::Interrupted()");
+	//printf("\n In DriveAutoCorrect::Interrupted()");
 	Robot::driveBaseSub->MechDrive(0,0,0,0);
 }

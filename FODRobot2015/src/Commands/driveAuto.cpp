@@ -15,7 +15,7 @@ driveAuto::driveAuto(double side, double fow, double rot, double yaw, double tim
 	Requires(Robot::driveBaseSub);
 
 	isDoneDriveAuto = false;
-	printf("\n In DriveAuto::DriveAuto");
+	//printf("\n In DriveAuto::DriveAuto");
 
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
@@ -28,29 +28,29 @@ driveAuto::driveAuto(double side, double fow, double rot, double yaw, double tim
 	speed_rot = rot;
 	imu_yaw = yaw;
 	time_run = time;
-	printf("driveAuto 0\n");
+	//printf("driveAuto 0\n");
 }
 
 // Called just before this Command runs the first time
 void driveAuto::Initialize() {
-	printf("\n In DriveAuto::Initialize()");
-	printf("\nDriveAuto InitVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_run);
+	//printf("\n In DriveAuto::Initialize()");
+	//printf("\nDriveAuto InitVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_run);
 
 	timer->Reset();
 	timer->Start();
 	
-	printf("\n Done timer->Start();");
+	//printf("\n Done timer->Start();");
 
 	isDoneDriveAuto = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveAuto::Execute() {
-	printf("\n In DriveAuto::Execute()");
+	//printf("\n In DriveAuto::Execute()");
 
 	time_timer = timer->Get();
 
-	printf("\nDriveAuto ExeVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_timer);
+	//printf("\nDriveAuto ExeVals X=%3.2f  Y=%3.2f  Rot=%3.2f Yaw=%3.2f  Time=%3.2f", speed_side, speed_fow, speed_rot, imu_yaw, time_timer);
 
 
 	Robot::driveBaseSub->MechDrive(speed_side, speed_fow, speed_rot, imu_yaw);
@@ -59,39 +59,39 @@ void driveAuto::Execute() {
 	{
 		Robot::driveBaseSub->MechDrive(0,0,0,0);
 		isDoneDriveAuto = true;
-		printf("\nisDoneDriveAuto = true;");
+		//printf("\nisDoneDriveAuto = true;");
 	}
 	else
 	{
 		isDoneDriveAuto = false;
-		printf("\nisDoneDriveAuto = false;");
+		//printf("\nisDoneDriveAuto = false;");
 	}
 	
-	printf("\n Leaving DriveAuto::Execute()");
+	//printf("\n Leaving DriveAuto::Execute()");
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool driveAuto::IsFinished() {
 	if(isDoneDriveAuto == true)
 	{
-		printf("\n In DriveAuto::IsFinished(), returning isDoneDriveAuto= true ");
+		//printf("\n In DriveAuto::IsFinished(), returning isDoneDriveAuto= true ");
 	}
 	else
 	{
-		printf("\n In DriveAuto::IsFinished(), returning isDoneDriveAuto= false ");
+		//printf("\n In DriveAuto::IsFinished(), returning isDoneDriveAuto= false ");
 	}
 	return isDoneDriveAuto;
 
-	printf("\n Done DriveAuto::IsFinished(),");
+	//printf("\n Done DriveAuto::IsFinished(),");
 }
 
 // Called once after isFinished returns true
 void driveAuto::End() {
-	printf("\n In DriveAuto::End()");
+	//printf("\n In DriveAuto::End()");
 	timer->Stop();
-	printf("drive auto over.");
+	//printf("drive auto over.");
 	
-	printf("\n Done DriveAuto::End()");
+	//printf("\n Done DriveAuto::End()");
 }
 
 // Called when another command which requires one or more of the same

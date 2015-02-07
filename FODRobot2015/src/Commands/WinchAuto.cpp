@@ -2,7 +2,7 @@
 
 WinchAuto::WinchAuto(double speed_param, double time)
 {
-	printf("winchAuto const\n");
+	//printf("winchAuto const\n");
 	Requires(Robot::winch);
 	timer = new Timer();
 	isDoneWinchAuto = false;
@@ -14,7 +14,7 @@ WinchAuto::WinchAuto(double speed_param, double time)
 // Called just before this Command runs the first time
 void WinchAuto::Initialize()
 {
-	printf("winchAuto init\n");
+	//printf("winchAuto init\n");
 	timer->Reset();
 	timer->Start();
 	isDoneWinchAuto = false;
@@ -23,7 +23,7 @@ void WinchAuto::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void WinchAuto::Execute()
 {
-	printf("winchAuto execute\n");
+	//printf("winchAuto execute\n");
 	time_timer = timer->Get();
 	Robot::winch->WinchMotor(speed);
 	if(time_timer >= time_run)
@@ -40,14 +40,14 @@ void WinchAuto::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool WinchAuto::IsFinished()
 {
-	printf("winchAuto isfinished\n");
+	//printf("winchAuto isfinished\n");
 	return isDoneWinchAuto;
 }
 
 // Called once after isFinished returns true
 void WinchAuto::End()
 {
-	printf("winchAuto end\n");
+	//printf("winchAuto end\n");
 	timer->Stop();
 }
 
@@ -55,5 +55,5 @@ void WinchAuto::End()
 // subsystems is scheduled to run
 void WinchAuto::Interrupted()
 {
-	printf("winchAuto interuppted\n");
+	//printf("winchAuto interuppted\n");
 }

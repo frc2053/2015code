@@ -7,7 +7,7 @@ DoNothingAuto::DoNothingAuto()
 	time_run = 15;
 	timer = new Timer();
 	NothingDone = false;
-	printf("do nothing auto const\n");
+	//printf("do nothing auto const\n");
 
 }
 
@@ -19,14 +19,14 @@ void DoNothingAuto::Initialize()
 	timer->Reset();
 	timer->Start();
 	NothingDone = false;
-	printf("do nothing auto init\n");
+	//printf("do nothing auto init\n");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DoNothingAuto::Execute()
 {
 	time_timer = timer->Get();
-	printf("timer %3.2f" ,time_timer);
+	//printf("timer %3.2f" ,time_timer);
 	if(time_timer >= time_run)
 	{
 		NothingDone = true;
@@ -35,20 +35,20 @@ void DoNothingAuto::Execute()
 	{
 		NothingDone = false;
 	}
-	printf("do nothing auto execute\n");
+	//printf("do nothing auto execute\n");
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DoNothingAuto::IsFinished()
 {
-	printf("do nothing auto finished\n");
+	//printf("do nothing auto finished\n");
 	return NothingDone;
 }
 
 // Called once after isFinished returns true
 void DoNothingAuto::End()
 {
-	printf("do nothing auto end\n");
+	//printf("do nothing auto end\n");
 	timer->Stop();
 }
 
@@ -56,5 +56,5 @@ void DoNothingAuto::End()
 // subsystems is scheduled to run
 void DoNothingAuto::Interrupted()
 {
-	printf("do nothing auto interrupted");
+	//printf("do nothing auto interrupted");
 }
