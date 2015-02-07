@@ -15,7 +15,7 @@ class HsvRange
         
         HsvRange(Scalar hsvMin, Scalar hsvMax);
         bool testPixel(Mat *hsvImg, int x, int y);
-        int testPoints(Mat *hsvImg, vector<Point> *testPoints);
+        int testPoints(Mat *hsvImg, vector<cv::Point> *testPoints);
 };
 
 #endif

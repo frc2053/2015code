@@ -29,5 +29,5 @@ vector<Contour> detectContoursColorFiltered(Mat *img, HsvRange *hrange, int minP
 
 /***** Misc *****/
 
-Point contourCentoid(Contour* contour);
+cv::Point contourCentoid(Contour* contour);
 bool contourNested(Contour *parent, Contour *child);

@@ -24,7 +24,7 @@ public:
     
     ShapeMatcher();
     ShapeMatcher(HsvRange* matchColor);
-    bool findMatch(vector<Contour> *contours, Mat *img, Contour *matchingContour, Rect *boundingRect);
+    bool findMatch(vector<Contour> *contours, Mat *img, Contour *matchingContour, cv::Rect *boundingRect);
 };
 
 /***** BackwardsLMatcher *****/

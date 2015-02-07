@@ -14,7 +14,7 @@ private:
 public:
     bool foundTote, foundL, foundBL, isProperlyNested;
     Contour contourTote, contourL, contourBL;
-    Rect rectTote, rectL, rectBL;
+    cv::Rect rectTote, rectL, rectBL;
     
     YellowToteFinder();
     bool findTote(Mat* img);
