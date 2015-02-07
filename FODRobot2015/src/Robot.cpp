@@ -96,11 +96,10 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	Mat frame;
-	Mat bw;
+	Mat rgba;
 	VideoCapture vidcap;
 	vidcap.open(videoStreamAddress);
 	vidcap >> frame;
-	cvtColor(frame, bw, CV_BGR2GRAY);
 	YellowToteFinder ytf = YellowToteFinder();
 	bool found = ytf.findTote(&frame);
 	float inches_away = ytf.getDistanceToTote();
@@ -121,25 +120,18 @@ void Robot::TeleopPeriodic() {
 
 	//std::vector<uchar> array(frame.rows*frame.cols);
 	//array = frame.data;
-	vector<uchar> array;
+	//vector<uchar> array;
 
 	//array.assign(frame.datastart,frame.dataend);
-	array.assign(bw.datastart,bw.dataend);
+	//array.assign(bw.datastart,bw.dataend);
+	cvtColor(frame, rgba, CV_BGR2BGRA, 4);
+	Image* myImaqImage = imaqCreateImage(IMAQ_IMAGE_RGB,  0);
 
-	//char* carray = (char*)&array[0];
-
-	Image* myImaqImage = imaqCreateImage(IMAQ_IMAGE_U8,  0);
-
-	int rc = imaqArrayToImage(myImaqImage, bw.data, frame.cols, frame.rows);
+	int rc = imaqArrayToImage(myImaqImage, rgba.data, frame.cols, frame.rows);
 
 	cout << "ArrayToImage Exploded! rc=" << rc << endl;
 
 	CameraServer::GetInstance()->SetImage(myImaqImage);
-	cout << "Material Depth: " << bw.depth() << endl;
-	cout << "Channels: " << bw.channels() << endl;
-	cout << "DataSize: " << bw.dataend - bw.datastart << endl;
-	cout << "frame r & c: " << frame.rows << " "<< frame.cols << endl;
-	cout << "BW r & c: " << bw.rows << " "<< bw.cols << endl;
 }
 
 void Robot::TestPeriodic() {
