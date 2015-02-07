@@ -106,11 +106,11 @@ void Robot::TeleopInit() {
 	{
 		cout << "We did not find a tote!" << endl;
 	}
-	//vector<int> param = vector<int>(2);
-	//param[0] = CV_IMWRITE_JPEG_QUALITY;
-	//param[1] = 80;
-	//vector<uchar> img_data;
-	//imwrite("/tmp/frame.jpg", imencode(".jpg", frame, img_data, param));
+	vector<int> param = vector<int>(2);
+	param[0] = CV_IMWRITE_JPEG_QUALITY;
+	param[1] = 80;
+	vector<uchar> img_data;
+	imwrite("/tmp/frame.jpg", imencode(".jpg", frame, img_data, param));
 }
 
 void Robot::TeleopPeriodic() {
