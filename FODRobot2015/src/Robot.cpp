@@ -96,7 +96,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
-/*	Mat frame;
+	Mat frame;
 	struct timeval start, end;
 	Mat rgba;
 	VideoCapture vidcap;
@@ -138,7 +138,7 @@ void Robot::TeleopPeriodic() {
 	CameraServer::GetInstance()->SetImage(myImaqImage);
 	//gettimeofday(&end, NULL);
 	double delta = (double) (end.tv_usec - start.tv_usec) / 1000000 + (double) (end.tv_sec - start.tv_sec);
-	cout << "Time to process: " << delta << endl;*/
+	cout << "Time to process: " << delta << endl;
 }
 
 void Robot::TestPeriodic() {
