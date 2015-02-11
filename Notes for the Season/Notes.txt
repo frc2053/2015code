@@ -1,2 +1,4 @@
 IMU RS232 config
 console out checkbox on roboRIO webdashboard must be OFF
+
+When flashing roboRIO, IMU must be disconnected
