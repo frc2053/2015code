@@ -24,7 +24,7 @@ bool YellowToteFinder::findTote(Mat* img)
     //if (!foundTote && (foundL || foundBL))
     //    inferToteLocation();
     
-    cout << "Found (" << foundTote << ")" << endl;
+    //cout << "Found (" << foundTote << ")" << endl;
     //cout << "Found (" << foundTote << "," << foundBL << "," << foundL << ")" << endl;
     //cout << "Properly Nested? " << isProperlyNested << endl;
     
@@ -96,7 +96,7 @@ float YellowToteFinder::getDistanceToTote()
     //
     
     float dist = (2760.0 / rectTote.width) * 7;
-    cout << "rect.width = " << rectTote.width << endl;
+    //cout << "rect.width = " << rectTote.width << endl;
     return dist;
 }
 

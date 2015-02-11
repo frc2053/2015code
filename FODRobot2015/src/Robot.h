@@ -42,7 +42,6 @@ public:
 	virtual void AutonomousInit();
 	virtual void AutonomousPeriodic();
 	virtual void TeleopInit();
-	virtual void Vision();
 	virtual void TeleopPeriodic();
 	virtual void TestPeriodic();
 };
