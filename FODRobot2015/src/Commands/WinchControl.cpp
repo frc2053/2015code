@@ -28,7 +28,7 @@ void WinchControl::Execute()
 	//printf("winchControl execute\n");
 	//gets joystick values
 	winchUp = fabs(Robot::oi->getJoystick2()->GetRawAxis(3));
-	winchDown = fabs(Robot::oi->getJoystick2()->GetRawAxis(2));
+	winchDown = fabs((Robot::oi->getJoystick2()->GetRawAxis(2)) / 2);
 
 		if(winchUp > winchDown)
 		{
