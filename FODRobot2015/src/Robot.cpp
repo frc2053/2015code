@@ -114,7 +114,8 @@ void Robot::RobotInit() {
  * You can use it to reset subsystems before shutting down.
  */
 void Robot::DisabledInit(){
-
+	RobotMap::compressor_spike->kOff;
+	RobotMap::compressor->Stop();
 }
 
 void Robot::DisabledPeriodic() {
@@ -126,7 +127,8 @@ void Robot::AutonomousInit() {
 	if (autonomousCommand != NULL) {
 		autonomousCommand->Start();
 	}
-
+	RobotMap::compressor_spike->Set(Relay::kForward);
+	RobotMap::compressor->Start();
 }
 
 void Robot::AutonomousPeriodic() {
@@ -140,6 +142,8 @@ void Robot::TeleopInit() {
 	// these lines or comment it out.
 	if (autonomousCommand != NULL)
 		autonomousCommand->Cancel();
+	//RobotMap::compressor_spike->kForward;
+	RobotMap::compressor->Start();
 }
 
 void Robot::TeleopPeriodic() {
