@@ -3,18 +3,18 @@
 extern float LEDcounter;
 LEDBright::LEDBright()
 {
-	RobotMap::Red_LED->SetRaw(0);
-	RobotMap::Green_LED->SetRaw(0);
-	RobotMap::Blue_LED->SetRaw(0);
+	//RobotMap::Red_LED->SetRaw(0);
+	//RobotMap::Green_LED->SetRaw(0);
+	//RobotMap::Blue_LED->SetRaw(0);
 	isDone = false;
 }
 
 // Called just before this Command runs the first time
 void LEDBright::Initialize()
 {
-	RobotMap::Red_LED->SetRaw(0);
-	RobotMap::Green_LED->SetRaw(0);
-	RobotMap::Blue_LED->SetRaw(0);
+	//RobotMap::Red_LED->SetRaw(0);
+	//RobotMap::Green_LED->SetRaw(0);
+	//RobotMap::Blue_LED->SetRaw(0);
 	isDone = false;
 
 }
@@ -24,9 +24,9 @@ void LEDBright::Execute()
 {
 	if(LEDcounter != 2000)
 	{
-		RobotMap::Red_LED->SetRaw(LEDcounter + 100);
-		RobotMap::Green_LED->SetRaw(LEDcounter + 100);
-		RobotMap::Blue_LED->SetRaw(LEDcounter + 100);
+		//RobotMap::Red_LED->SetRaw(LEDcounter + 100);
+		//RobotMap::Green_LED->SetRaw(LEDcounter + 100);
+		//RobotMap::Blue_LED->SetRaw(LEDcounter + 100);
 	}
 	isDone = true;
 }

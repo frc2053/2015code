@@ -104,6 +104,12 @@ void Robot::RobotInit() {
 	visionTask = new Task("Vision",(FUNCPTR)Vision,Task::kDefaultPriority + 1);
 	visionTask->Start((int)this);
 	RobotMap::LED_spike->Set(RobotMap::LED_spike->Value::kForward);
+	RobotMap::Red_LED->SetPWMRate(10);
+	RobotMap::Green_LED->SetPWMRate(10);
+	RobotMap::Blue_LED->SetPWMRate(10);
+	RobotMap::Red_LED->EnablePWM(0);
+	RobotMap::Blue_LED->EnablePWM(.5);
+	RobotMap::Green_LED->EnablePWM(1);
   }
 
 /**
