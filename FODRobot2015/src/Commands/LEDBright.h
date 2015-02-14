@@ -1,21 +1,19 @@
-#ifndef LEDChanger_H
-#define LEDChanger_H
+#ifndef LEDBright_H
+#define LEDBright_H
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
-class LEDChanger: public Command
+class LEDBright: public Command
 {
 public:
-	LEDChanger();
+	LEDBright();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
-	bool dim_button;
-	bool bright_button;
-	float counter;
+	bool isDone;
 };
 
 #endif
