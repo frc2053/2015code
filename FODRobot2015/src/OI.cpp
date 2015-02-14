@@ -27,7 +27,6 @@ OI::OI() {
 
 	joystick1 = new Joystick(0);
 	joystick2 = new Joystick(1);
-	
         // SmartDashboard Buttons
 
 	SmartDashboard::PutData("ZeroYaw", new ZeroYaw());

@@ -69,11 +69,7 @@ static void Vision(Robot* robot) {
 		if(rc != 1)
 			return;
 
-		//gettimeofday(&start, NULL);
 		CameraServer::GetInstance()->SetImage(myImaqImage);
-		//gettimeofday(&end, NULL);
-		//double delta = (double) (end.tv_usec - start.tv_usec) / 1000000 + (double) (end.tv_sec - start.tv_sec);
-		//cout << "Time to process: " << delta << endl;
 	}
 
 }

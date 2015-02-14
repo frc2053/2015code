@@ -35,7 +35,7 @@ void Pneumatics::Execute()
 		Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kReverse);
 	}
 
-}//hi
+}
 
 // Make this return true when this Command no longer needs to run execute()
 bool Pneumatics::IsFinished()
