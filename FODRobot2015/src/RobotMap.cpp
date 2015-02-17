@@ -57,9 +57,9 @@ void RobotMap::init() {
 
 	LED_spike = new Relay(0, LED_spike->kForwardOnly);
 
-	Red_LED = new DigitalOutput(3);
+	Red_LED = new DigitalOutput(1);
 
-	Blue_LED = new DigitalOutput(1);
+	Blue_LED = new DigitalOutput(3);
 
 	Green_LED = new DigitalOutput(2);
 
