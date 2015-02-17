@@ -113,12 +113,12 @@ void Robot::RobotInit() {
 	visionTask = new Task("Vision",(FUNCPTR)Vision,Task::kDefaultPriority + 1);
 	visionTask->Start((int)this);
 	RobotMap::LED_spike->Set(RobotMap::LED_spike->Value::kForward);
-	RobotMap::Red_LED->SetPWMRate(10);
-	RobotMap::Green_LED->SetPWMRate(10);
-	RobotMap::Blue_LED->SetPWMRate(10);
-	RobotMap::Red_LED->EnablePWM(0);
+	RobotMap::Red_LED->SetPWMRate(2000);
+	RobotMap::Green_LED->SetPWMRate(2000);
+	RobotMap::Blue_LED->SetPWMRate(2000);
+	RobotMap::Red_LED->EnablePWM(1);
 	RobotMap::Blue_LED->EnablePWM(0);
-	RobotMap::Green_LED->EnablePWM(0);
+	RobotMap::Green_LED->EnablePWM(0.05);
 	LEDtimer = new Timer();
 	time_run = .1;
 	time_timer = 0;
@@ -169,7 +169,7 @@ void Robot::TestPeriodic() {
 	lw->Run();
 }
 
-void  Robot::LEDUpdate() {
+/*void  Robot::LEDUpdate() {
 	time_timer = LEDtimer->Get();
 	for(int y = 0; y > 4; y++)
 	{}
@@ -187,6 +187,6 @@ void  Robot::LEDUpdate() {
 	}
 	i++;
 	j++;
-}
+}*/
 START_ROBOT_CLASS(Robot);
 
