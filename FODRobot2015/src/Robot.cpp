@@ -169,7 +169,7 @@ void Robot::TestPeriodic() {
 	lw->Run();
 }
 
-/*void  Robot::LEDUpdate() {
+void  Robot::LEDUpdate() {
 	time_timer = LEDtimer->Get();
 	for(int y = 0; y > 4; y++)
 	{}
@@ -187,6 +187,6 @@ void Robot::TestPeriodic() {
 	}
 	i++;
 	j++;
-}*/
+}
 START_ROBOT_CLASS(Robot);
 

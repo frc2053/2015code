@@ -1,4 +1,5 @@
 #include "Pneumatics.h"
+float voltage, psi;
 
 Pneumatics::Pneumatics()
 {
@@ -6,6 +7,8 @@ Pneumatics::Pneumatics()
 	Requires(Robot::gripperArm);
 	right_Bumper = false;
 	left_Bumper = false;
+	voltage = 0.0;
+	psi = 0.0;
 	//printf("Pneumatics constructor\n");
 }
 
@@ -14,6 +17,8 @@ void Pneumatics::Initialize()
 {
 	right_Bumper = false;
 	left_Bumper = false;
+	voltage = 0.0;
+	psi = 0.0;
 	//printf("Pneumatics Initialize\n");
 }
 
@@ -34,7 +39,6 @@ void Pneumatics::Execute()
 		Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kReverse);
 		Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kReverse);
 	}
-	//RobotMap::compressor->
 }
 
 // Make this return true when this Command no longer needs to run execute()
