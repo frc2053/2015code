@@ -40,8 +40,8 @@ void WinchControl::Execute()
 		}
 
 
-	SmartDashboard::PutNumber("WinchUp", winchUp);
-	SmartDashboard::PutNumber("WinchDown", winchDown);
+	//SmartDashboard::PutNumber("WinchUp", winchUp);
+	//SmartDashboard::PutNumber("WinchDown", winchDown);
 
 	if(isClosed == false)
 	{

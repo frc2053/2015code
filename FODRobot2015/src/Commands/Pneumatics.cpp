@@ -34,7 +34,7 @@ void Pneumatics::Execute()
 		Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kReverse);
 		Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kReverse);
 	}
-
+	//RobotMap::compressor->
 }
 
 // Make this return true when this Command no longer needs to run execute()

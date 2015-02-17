@@ -49,13 +49,13 @@ void RotatetoAngle::Initialize() {
 	MaxScalingSpeed = 1; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
 
 	SetAngle = 0; // Saves the commanded go-to angle functional parameter passed in.
-	SetInitAngle = 0; // Initial Set Angle for Rotation
+	//SetInitAngle = 0; // Initial Set Angle for Rotation
 
 	DriverRotateAxisOverride = 0; //Driver override AutoRotation value
 	
 	IMU_Yaw = 0;  //Yaw value from IMU and scaled value to eliminate
 	IMU_Scaled = 0; // Translated to a non-wrapping scale (-180 to 180 -> 820 to 1180)
-	SetAngleScaled = 0; // Converted value of the Commanded Set Angle to linear scale.
+	//SetAngleScaled = 0; // Converted value of the Commanded Set Angle to linear scale.
 
 	SpinDirection = 1;  // Sets pin direction: 1=Clockwise from robot top, -1=CCW
 	RotCmd = 0; //Calculated rotation speed to command

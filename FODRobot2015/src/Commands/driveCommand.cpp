@@ -166,9 +166,9 @@ void driveCommand::Execute() {
 		RotateAxis = RotateAxis * fabs(RotateAxis);
 	}
 
-	SmartDashboard::PutNumber("JoyX", XAxis);
-	SmartDashboard::PutNumber("JoyY", YAxis);
-	SmartDashboard::PutNumber("JoyRot", RotateAxis);
+	//SmartDashboard::PutNumber("JoyX", XAxis);
+	//SmartDashboard::PutNumber("JoyY", YAxis);
+	//SmartDashboard::PutNumber("JoyRot", RotateAxis);
 
 
 	//Auto Rotation

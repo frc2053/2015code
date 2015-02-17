@@ -10,7 +10,7 @@ FullAutoShort::FullAutoShort()
 {
 	//Grab first tote then move to the next one while raising the first
 	AddSequential(new PneumaticsAuto(true,true, true));
-	AddSequential(new DriveWhileWinching(0.0,-0.5,0.0,0.0,1.5,0.5,1));
+	AddSequential(new DriveWhileWinching(0.0,-0.5,0.0,0.0,1.5,1,1));
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0));
 
 	//drop first tote on second tote, then pick up second tote
