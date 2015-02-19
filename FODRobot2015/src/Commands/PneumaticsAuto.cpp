@@ -11,29 +11,29 @@ PneumaticsAuto::PneumaticsAuto(bool left, bool right, bool oc)
 	leftArm = left;
 	rightArm = right;
 	open_close = oc;
-	//printf("PneumaticsAuto const\n");
+	printf("PneumaticsAuto const\n");
 }
 
 // Called just before this Command runs the first time
 void PneumaticsAuto::Initialize()
 {
-	//printf("PneumaticsAuto init\n");
+	printf("PneumaticsAuto init\n");
 	time_timer = 0;
 	time_run = PNEUMATIC_DELAY;
 	timer->Reset();
 	timer->Start();
 	PneumaticsDone = false;
-	open_close = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void PneumaticsAuto::Execute()
 {
-	//printf("PneumaticsAuto execute\n");
+	printf("PneumaticsAuto execute\n");
 	time_timer = timer->Get();
 	if(time_timer >= time_run)
 	{
 		PneumaticsDone = true;
+		printf("time_timer >= time_run");
 	}
 	else
 	{
@@ -42,13 +42,16 @@ void PneumaticsAuto::Execute()
 
 	if(open_close == true)
 	{
+		printf("open_close = true\n");
 		if(leftArm == true)
 		{
 			Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kForward);
+			printf("leftArm = true\n");
 		}
 		if(rightArm == true)
 		{
 			Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kForward);
+			printf("rightArm = true\n");
 		}
 	}
 	if(open_close == false)
@@ -56,10 +59,12 @@ void PneumaticsAuto::Execute()
 		if(leftArm == true)
 		{
 			Robot::gripperArm->leftGripper->Set(Robot::gripperArm->leftGripper->kReverse);
+			printf("open left arm\n");
 		}
 		if(rightArm == true)
 		{
 			Robot::gripperArm->rightGripper->Set(Robot::gripperArm->rightGripper->kReverse);
+			printf("open right arm\n");
 		}
 	}
 	//printf("PnuematicsDone = %d", PneumaticsDone);
@@ -68,14 +73,14 @@ void PneumaticsAuto::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool PneumaticsAuto::IsFinished()
 {
-	//printf("PneumaticsAuto isFinished\n");
+	printf("PneumaticsAuto isFinished\n");
 	return PneumaticsDone;
 }
 
 // Called once after isFinished returns true
 void PneumaticsAuto::End()
 {
-	//printf("PneumaticsAuto end\n");
+	printf("PneumaticsAuto end\n");
 	timer->Stop();
 }
 
@@ -83,5 +88,5 @@ void PneumaticsAuto::End()
 // subsystems is scheduled to run
 void PneumaticsAuto::Interrupted()
 {
-	//printf("PneumaticsAuto interuppted\n");
+	printf("PneumaticsAuto interuppted\n");
 }

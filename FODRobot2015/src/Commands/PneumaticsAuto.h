@@ -19,7 +19,7 @@ private:
 	double time_run;
 	double time_timer;
 	bool PneumaticsDone;
-	double const PNEUMATIC_DELAY = 1;
+	double const PNEUMATIC_DELAY = 0.1;
 	bool leftArm;
 	bool rightArm;
 	bool open_close;
