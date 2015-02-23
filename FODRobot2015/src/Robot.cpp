@@ -91,9 +91,6 @@ void Robot::RobotInit() {
 	winch = new Winch();
 	gripperArm = new GripperArm();
 	autoChooser = new SendableChooser();
-	SmartDashboard::PutNumber("R", 0);
-	SmartDashboard::PutNumber("G", 0);
-	SmartDashboard::PutNumber("B", 0);
 	autoChooser->AddDefault("Full Auto Wide", new FullAutoWide());
 	autoChooser->AddObject("Full Auto Short", new FullAutoShort());
 	autoChooser->AddObject("Drive Forward Only", new DriveForwardAuto());
@@ -181,9 +178,9 @@ void Robot::LEDUpdate() {
 	if(time_timer >= time_run)
 	{
 		RobotMap::Red_LED->EnablePWM(LEDArray[i][0]);
-		printf("%d", LEDArray[i][0]);
-		printf("%d", LEDArray[i][1]);
-		printf("%d", LEDArray[i][2]);
+		//printf("%d", LEDArray[i][0]);
+		//printf("%d", LEDArray[i][1]);
+		//printf("%d", LEDArray[i][2]);
 
 		RobotMap::Blue_LED->EnablePWM(LEDArray[i][1]);
 		RobotMap::Green_LED->EnablePWM(LEDArray[i][2]);
