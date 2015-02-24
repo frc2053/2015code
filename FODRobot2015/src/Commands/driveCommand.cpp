@@ -98,7 +98,6 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-
 	//printf("\n In driveCommand::Execute(");
 
 	//Set the value back from the Autorotate command to zero for each passd through the loop
