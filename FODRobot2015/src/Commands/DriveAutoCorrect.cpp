@@ -43,7 +43,7 @@ DriveAutoCorrect::DriveAutoCorrect(double side, double fow, double rot, double y
 	DRIVE_Y = 0; // used for translation magnitude to drive command - not used - stays 0
 	ROTATE_LOOP_CHECK = 5; //checks for iterations through loop. Change later depending on robot
 	SetAngleScaled = 0;
-	SetAngle = 0;
+	SetAngle = Angle;
 	SetSpeed = 0;
 	RotCmd = 0;
 	Button2Pressed = false;
@@ -77,7 +77,7 @@ void DriveAutoCorrect::Initialize() {
 	SetSpeed = 0; // Current spin speed for piece wise linear angle from set point distance
 	MaxScalingSpeed = 1; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
 
-	SetAngle = 0; // Saves the commanded go-to angle functional parameter passed in.
+	//SetAngle = Angle; // Saves the commanded go-to angle functional parameter passed in.
 	SetInitAngle = 0; // Initial Set Angle for Rotation
 
 	DriverRotateAxisOverride = 0; //Driver override AutoRotation value
@@ -256,7 +256,7 @@ float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 // Make this return true when this Command no longer needs to run execute()
 bool DriveAutoCorrect::IsFinished() {
 	//printf("\n In DriveAutoCorrect::IsFinished()");
-	return false;
+	return isDoneDriveAutoCorrect;
 }
 
 // Called once after isFinished returns true

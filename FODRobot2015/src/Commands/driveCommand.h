@@ -38,6 +38,7 @@ private:
 	float ROTATE_LOOP_CHECK; //checks for iterations through loop. Change later depending on robot
 
 	bool Button2Pressed; //B button on xbox 360 controller used to start AutoRotate
+	bool Button1Pressed;
 
 	float SetAngle; // Saves the commanded go-to angle functional parameter passed in.
 	float SetInitAngle; // Initial Set Angle for Rotation

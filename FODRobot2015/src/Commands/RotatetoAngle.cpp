@@ -46,10 +46,10 @@ void RotatetoAngle::Initialize() {
 	AutoRotDone = false; // Just started - can't be done yet
 
 	SetSpeed = 0; // Current spin speed for piece wise linear angle from set point distance
-	MaxScalingSpeed = 1; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
+	//MaxScalingSpeed = 1; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
 
-	SetAngle = 0; // Saves the commanded go-to angle functional parameter passed in.
-	//SetInitAngle = 0; // Initial Set Angle for Rotation
+	SetAngle = SetInitAngle; // Saves the commanded go-to angle functional parameter passed in.
+
 
 	DriverRotateAxisOverride = 0; //Driver override AutoRotation value
 	

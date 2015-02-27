@@ -50,6 +50,7 @@ driveCommand::driveCommand() {
 	IMU_Scaled = 0;
 	IMU_Yaw = 0;
 	TimesThroughLoop = 0;
+	Button1Pressed = false;
 }
 
 // Called just before this Command runs the first time
@@ -98,18 +99,29 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-
 	//printf("\n In driveCommand::Execute(");
 
 	//Set the value back from the Autorotate command to zero for each passd through the loop
 	AutoRotCmd = 0;
 
 	//Button press indicates start AutoROtate command
+	//Set Rotate Angle Based on Which Button
 	Button2Pressed = Robot::oi->getJoystick1()->GetRawButton(2);
+	if(Button2Pressed == true)
+	{
+		SetAngle = 0;
+	}
+
+	Button1Pressed = Robot::oi->getJoystick1()->GetRawButton(1);
+	if(Button1Pressed == true)
+	{
+		SetAngle = 180;
+	}
 
 
-	//Start if the button is pressed, or if we aren't done from previous conditions
-	if(((Button2Pressed == true) && (AutoRotDone == true)) || (AutoRotDone == false))
+
+	//Start if the button is pressed and we arent already going, or if we aren't done from previous conditions
+	if( ((Button2Pressed == true)||((Button1Pressed ==true) && (AutoRotDone == true))) || (AutoRotDone == false))
 	{
 		//Rotate to Set Angle at Max Speed (1)
 		AutoRotCmd = RotateToAngleDrive(SetAngle, MaxScalingSpeed);
@@ -171,6 +183,7 @@ void driveCommand::Execute() {
 	//SmartDashboard::PutNumber("JoyRot", RotateAxis);
 
 
+	//Allow the driver to override a previous auto-rotation command
 	//Auto Rotation
 	if(RotateAxis == 0)
 	{
@@ -181,7 +194,6 @@ void driveCommand::Execute() {
 	//Driver rotation
 	else
 	{
-		//Negative x and y because of the joystick
 		Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,IMU_Yaw);
 		TimesThroughLoop = 0;  //reset the loop/overshoot counter any time driver overrides
 		AutoRotDone = true;
@@ -305,12 +317,12 @@ bool driveCommand::IsFinished() {
 // Called once after isFinished returns true
 void driveCommand::End() {
 	//printf("\n In driveCommand::End()");
-	Robot::driveBaseSub->MechDrive(0,0,0,0);
+	//Robot::driveBaseSub->MechDrive(0,0,0,0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void driveCommand::Interrupted() {
 	//printf("\n In driveCommand::Interrupted()");
-	Robot::driveBaseSub->MechDrive(0,0,0,0);
+	//Robot::driveBaseSub->MechDrive(0,0,0,0);
 }
