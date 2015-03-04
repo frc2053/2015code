@@ -27,19 +27,22 @@ void LEDCmd::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void LEDCmd::Execute()
 {
-	//RobotMap::Red_LED->EnablePWM(LEDArray[i][0]);
-	//RobotMap::Blue_LED->EnablePWM(LEDArray[i][1]);
-	//RobotMap::Green_LED->EnablePWM(LEDArray[i][2]);
-	RobotMap::Green_LED->EnablePWM(1);
+	if(i == 43)
+	{
+		i = 0;
+	}
+	RobotMap::Red_LED->DisablePWM();
+	RobotMap::Blue_LED->DisablePWM();
+	RobotMap::Green_LED->DisablePWM();
+	RobotMap::Red_LED->EnablePWM(LEDArray[i][0]);
+	RobotMap::Blue_LED->EnablePWM(LEDArray[i][1]);
+	RobotMap::Green_LED->EnablePWM(LEDArray[i][2]);
+
 	printf("Red%.2f\n", LEDArray[i][0]);
 	printf("Green%.2f\n", LEDArray[i][1]);
 	printf("Blue%.2f\n", LEDArray[i][2]);
 	printf("Timer loop\n%d", i);
 	i++;
-	if(i == 45)
-	{
-		i = 0;
-	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
