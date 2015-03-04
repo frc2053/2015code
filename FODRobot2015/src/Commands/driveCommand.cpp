@@ -51,6 +51,7 @@ driveCommand::driveCommand() {
 	IMU_Yaw = 0;
 	TimesThroughLoop = 0;
 	Button1Pressed = false;
+	slow_button = false;
 }
 
 // Called just before this Command runs the first time
@@ -93,6 +94,7 @@ void driveCommand::Initialize() {
 
 	AutoRotDone = true; //Rotate command is done
 
+	slow_button = false;
 
 	//printf("\n Done driveCommand::Initialize()");
 }
@@ -136,6 +138,14 @@ void driveCommand::Execute() {
 	XAxis = Robot::oi->getJoystick1()->GetRawAxis(0);
 	YAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
 	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
+	slow_button = Robot::oi->getJoystick1()->GetRawButton(6);
+
+	if(slow_button == true)
+	{
+		XAxis = XAxis / 2;
+		YAxis = YAxis / 2;
+		RotateAxis = RotateAxis / 2;
+	}
 
 	//Sets up deadbands (this gets rid of the robot moving very slowly
 	//even when you are not touching the joystick. Because the joystick

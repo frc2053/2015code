@@ -73,6 +73,8 @@ private:
 	float AutoRotCmd; // Rotate command from AutoRotate calculator
 
 	bool AutoRotDone; //Rotate command is done
+
+	bool slow_button;
 };
 
 #endif
