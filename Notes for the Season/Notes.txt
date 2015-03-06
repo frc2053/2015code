@@ -4,3 +4,7 @@ console out checkbox on roboRIO webdashboard must be OFF
 When flashing roboRIO, IMU must be disconnected
 
 If you update wpilib c++ robot development, be sure to go into wpilib.h and comment out #define REAL
+
+Install NI update suite using serial key: M64X86722
+username: team2053tigertronics@gmail.com
+password: uetigers
