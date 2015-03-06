@@ -1,8 +1,10 @@
 #include "CanGrabAutoGroup.h"
 #include "Commands/AutoCanGrabber.h"
 #include "Commands/driveAuto.h"
+#include "Commands/SetOffSet.h"
 CanGrabAutoGroup::CanGrabAutoGroup()
 {
+	AddSequential(new SetOffSet(180));
 	//AutoCanGrabber(wings, flopper, open_close);
 	AddSequential(new AutoCanGrabber(true,false,true));
 	AddSequential(new driveAuto(0.0,1.0,0.0,0.0,1));

@@ -1,5 +1,5 @@
 #include "DoNothingAuto.h"
-
+#include "Commands/SetOffSet.h"
 DoNothingAuto::DoNothingAuto()
 {
 	Requires(Robot::driveBaseSub);

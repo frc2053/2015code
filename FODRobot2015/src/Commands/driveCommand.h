@@ -74,7 +74,7 @@ private:
 
 	bool AutoRotDone; //Rotate command is done
 
-	bool slow_button;
+	bool slow_button; //button to slow drive command
 };
 
 #endif

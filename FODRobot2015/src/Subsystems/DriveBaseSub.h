@@ -37,6 +37,11 @@ public:
 	DriveBaseSub();
 	void InitDefaultCommand();
 	void MechDrive(float, float, float, float);
+	virtual void IMU_YAWoffset(float offset);
+	virtual float getAdjYaw();
+	float calculatedoffset; //calculated for imu offset
+	float yawoffset; //param
+	float IMU_Yaw; //return value for imuoffset
 };
 
 #endif

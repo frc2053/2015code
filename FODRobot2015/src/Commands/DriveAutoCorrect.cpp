@@ -130,7 +130,7 @@ void DriveAutoCorrect::Execute() {
 
 
 	//Read current robot orientation angle measured from starting position=0 degrees
-	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
 	SmartDashboard::PutNumber("Angle of Robot", IMU_Yaw);
 
 	//Get Joystick Values from Driver
@@ -172,7 +172,7 @@ float DriveAutoCorrect::RotateToAngleDrive(float Angle, float Speed) {
 	RotCmd = 0;
 
 	//Read the actual Robot Angle from IMU
-	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
 
 	//Scale the IMU reading
 	IMU_Scaled = IMU_Yaw + 1000;

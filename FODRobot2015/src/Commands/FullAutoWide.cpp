@@ -4,9 +4,10 @@
 #include "WinchAuto.h"
 #include "RotatetoAngle.h"
 #include "DriveWhileWinching.h"
-
+#include "Commands/SetOffSet.h"
 FullAutoWide::FullAutoWide()
 {
+	AddSequential(new SetOffSet(180));
 	//driveAuto(side, fow, rot, yaw, time)
 	//WinchAuto(speed, time)
 	//PneumaticsAuto(left, right, close = true open = false);

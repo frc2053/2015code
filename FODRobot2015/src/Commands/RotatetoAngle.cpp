@@ -92,7 +92,7 @@ void RotatetoAngle::Execute() {
 	RotCmd = 0;
 
 	//Read the actual Robot Angle from IMU
-	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
 
 	//Scale the IMU reading
 	IMU_Scaled = IMU_Yaw + 1000;

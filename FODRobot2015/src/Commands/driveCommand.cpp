@@ -117,7 +117,7 @@ void driveCommand::Execute() {
 	Button1Pressed = Robot::oi->getJoystick1()->GetRawButton(1);
 	if(Button1Pressed == true)
 	{
-		SetAngle = 180;
+		SetAngle = 175;
 	}
 
 
@@ -131,7 +131,7 @@ void driveCommand::Execute() {
 
 
 	//Read current robot orientation angle measured from starting position=0 degrees
-	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
 	SmartDashboard::PutNumber("Angle of Robot", IMU_Yaw);
 
 	//Get Joystick Values from Driver
@@ -237,7 +237,7 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 	RotCmd = 0;
 
 	//Read the actual Robot Angle from IMU
-	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
+	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
 
 	//Scale the IMU reading
 	IMU_Scaled = IMU_Yaw + 1000;
