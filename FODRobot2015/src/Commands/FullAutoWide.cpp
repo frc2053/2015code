@@ -17,9 +17,9 @@ FullAutoWide::FullAutoWide()
 	AddSequential(new PneumaticsAuto(true, true, true));
 	//printf("Auto Wide 1\n");
 	//drives back from first tote while winching
-	AddSequential(new DriveWhileWinching(0.0, 0.2, 0.0, 0.0, 1, 0.5, 1));
+	AddSequential(new DriveWhileWinching(0.0, 0.2, 0.0, 0.0, 1, 0.5, 1, 0));
 	////printf("Auto Wide 1.5\n");
-	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0, 0));
 	//printf("Auto Wide 2\n");
 	//driving to second tote
 	AddSequential(new driveAuto(0.2, 0.0, 0.0, 0.0, 1));
@@ -33,15 +33,15 @@ FullAutoWide::FullAutoWide()
 	AddSequential(new PneumaticsAuto(true, true, false));
 	//printf("Auto Wide 5\n");
 	//lowers winch to first level
-	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, -0.2, 1));
-	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, -0.2, 1, 0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0, 0));
 	//printf("Auto Wide 6\n");
 	//grabs second tote
 	AddSequential(new PneumaticsAuto(true, true, true));
 	//printf("Auto Wide 7\n");
 	//drives backwards from second tote while winching
-	AddSequential(new DriveWhileWinching(0.0, 0.2, 0.0, 0.0, 1, 0.5, 1));
-	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0));
+	AddSequential(new DriveWhileWinching(0.0, 0.2, 0.0, 0.0, 1, 0.5, 1, 0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0,0));
 	//printf("Auto Wide 8\n");
 	//drives to third tote
 	AddSequential(new driveAuto(0.2, 0.0, 0.0, 0.0, 1));
@@ -55,8 +55,8 @@ FullAutoWide::FullAutoWide()
 	AddSequential(new PneumaticsAuto(true, true, false));
 	//printf("Auto Wide 11\n");
 	//lowers winch to first level
-	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.0, -0.5, 1));
-	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.0, -0.5, 1, 0));
+	AddSequential(new DriveWhileWinching(0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.0, 0));
 	//printf("Auto Wide 12\n");
 	//grabs third tote
 	AddSequential(new PneumaticsAuto(true, true, true));
