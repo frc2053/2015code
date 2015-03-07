@@ -57,7 +57,7 @@ float DriveBaseSub::getAdjYaw()
 {
 	IMU_Yaw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
 	calculatedoffset = IMU_Yaw + yawoffset;
-	if(calculatedoffset >= 360)
+	if(calculatedoffset >= 180)
 	{
 		calculatedoffset = calculatedoffset - 360;
 	}
