@@ -2,7 +2,7 @@
 #include "driveAuto.h"
 #include "WinchAuto.h"
 
-DriveWhileWinching::DriveWhileWinching(double side, double fow, double rot, double yaw, double time, double speedWinch, double timeWinch)
+DriveWhileWinching::DriveWhileWinching(double side, double fow, double rot, double yaw, double time, double speedWinch, double timeWinch, angle)
 {
 	//printf("DriveWhileWinching 0\n");
 	AddParallel(new driveAuto(side, fow, rot,  yaw, time));

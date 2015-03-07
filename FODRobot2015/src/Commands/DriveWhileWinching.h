@@ -7,7 +7,7 @@
 class DriveWhileWinching: public CommandGroup
 {
 public:
-	DriveWhileWinching(double side, double fow, double rot, double yaw, double time, double speedWinch, double timeWinch);
+	DriveWhileWinching(double side, double fow, double rot, double yaw, double time, double speedWinch, double timeWinch, double Angle);
 };
 
 #endif
