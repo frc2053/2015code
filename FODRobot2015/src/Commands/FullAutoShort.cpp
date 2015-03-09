@@ -15,7 +15,7 @@ FullAutoShort::FullAutoShort()
 	AddSequential(new PneumaticsAuto(true, false, false));
 	AddSequential(new PneumaticsAuto(false, true, false));
 	AddSequential(new WinchAuto(1, .4));
-	AddSequential(new DriveWhileWinching(0.0,-0.5,0.0,Robot::driveBaseSub->getAdjYaw(),1.5,1,1,0));
+	AddSequential(new DriveWhileWinching(0.0,-0.5,0.0,Robot::driveBaseSub->getAdjYaw(),1.41,1,1,0));
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0));
 
 	//drop first tote on second tote, then pick up second tote
@@ -27,7 +27,7 @@ FullAutoShort::FullAutoShort()
 
 	//winches up to final tote
 	AddSequential(new WinchAuto(1, .8));
-	AddSequential(new DriveWhileWinching(0.0,-0.6,0.0,Robot::driveBaseSub->getAdjYaw(),1.5,1,1,0));
+	AddSequential(new DriveWhileWinching(0.0,-0.6,0.0,Robot::driveBaseSub->getAdjYaw(),1.3,1,1,0));
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0));
 
 	//drop first and second totes(ma-goats) on final tote, then grab final tote
@@ -38,12 +38,12 @@ FullAutoShort::FullAutoShort()
 	AddSequential(new PneumaticsAuto(true,true, false));
 
 	//lift all totes(ma-goats) slightly while also moving into auto zone
-	AddSequential(new WinchAuto(1,0.5));
-	AddSequential(new DriveAutoCorrect(0.75,0.0,0.0,Robot::driveBaseSub->getAdjYaw(),2,0));
+	AddSequential(new WinchAuto(1,1));
+	AddSequential(new DriveAutoCorrect(1,0,0.0,Robot::driveBaseSub->getAdjYaw(),3,0));
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0));
 
 	//drop totes and back away
-	AddSequential(new WinchAuto(-0.5,0.25));
+	AddSequential(new WinchAuto(-0.5,.5));
 	AddSequential(new PneumaticsAuto(true,true, true));
 	AddSequential(new DriveWhileWinching(0.0,0.4,0.0,Robot::driveBaseSub->getAdjYaw(),0.25,0.0,0.0,0));
 	AddSequential(new driveAuto(0.0,0.0,0.0,0.0,0.0));

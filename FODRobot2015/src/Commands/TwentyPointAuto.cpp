@@ -6,6 +6,7 @@
 #include "RotatetoAngle.h"
 #include "DriveWhileWinching.h"
 #include "SetOffSet.h"
+#include "driveAuto.h"
 
 TwentyPointAuto::TwentyPointAuto()
 {
@@ -14,13 +15,13 @@ TwentyPointAuto::TwentyPointAuto()
 
 	//Get to Second Tote, Bumping Container out of the Way
 		//Angle, Speed
-		AddSequential(new RotatetoAngle(45,1));
-		//Side Magnitude, Forward Magnitude, Rotation Magnitude, Position Yaw, Drive Time, Drive Angle, Winch Magnitude, Winch Time
-		AddSequential(new DriveWhileWinching(1,-1,0.0,Robot::driveBaseSub->getAdjYaw(),.2,1,.2, 45));
 		AddSequential(new RotatetoAngle(-45,1));
-		AddSequential(new DriveWhileWinching(-1,-1,0.0,Robot::driveBaseSub->getAdjYaw(),.2,1,.2, -45));
+		//Side Magnitude, Forward Magnitude, Rotation Magnitude, Position Yaw, Drive Time, Drive Angle, Winch Magnitude, Winch Time
+		AddSequential(new DriveWhileWinching(0,-1,0.0,0,1,0,1,1));
+		AddSequential(new RotatetoAngle(45,1));
+		AddSequential(new DriveWhileWinching(0,-1,0,0,1,0,1,1));
 		AddSequential(new RotatetoAngle(0,1));
-		AddSequential(new DriveWhileWinching(0,-1,0.0,Robot::driveBaseSub->getAdjYaw(),.2,1,.2,0));
+		AddSequential(new DriveWhileWinching(0,-1,0,0,0,1,0,0));
 
 
 	//At Second Tote, Lower First Down and Pick Up Both
@@ -33,10 +34,10 @@ TwentyPointAuto::TwentyPointAuto()
 
 	//Get to Third Tote, Bumping Container out of the Way
 		//Angle, Speed
-		AddSequential(new RotatetoAngle(45,1));
+		AddSequential(new RotatetoAngle(-45,1));
 		//Side Magnitude, Forward Magnitude, Rotation Magnitude, Position Yaw, Drive Time, Drive Angle, Winch Magnitude, Winch Time
 		AddSequential(new DriveWhileWinching(1,-1,0.0,Robot::driveBaseSub->getAdjYaw(),.2,1,.2,45));
-		AddSequential(new RotatetoAngle(-45,1));
+		AddSequential(new RotatetoAngle(45,1));
 		AddSequential(new DriveWhileWinching(-1,-1,0.0,Robot::driveBaseSub->getAdjYaw(),.2,1,.2,-45));
 		AddSequential(new RotatetoAngle(0,1));
 		AddSequential(new DriveWhileWinching(0,-1,0.0,Robot::driveBaseSub->getAdjYaw(),.2,1,.2, -45));
