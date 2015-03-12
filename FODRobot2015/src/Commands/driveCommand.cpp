@@ -33,7 +33,6 @@ driveCommand::driveCommand() {
 	SetAngle = 0;
 	SetSpeed = 0;
 	RotCmd = 0;
-	Button2Pressed = false;
 	MaxScalingSpeed = 1;
 	DegreesToSetPointAbs = 0;
 	DriverRotateAxisOverride = 0;
@@ -50,7 +49,10 @@ driveCommand::driveCommand() {
 	IMU_Scaled = 0;
 	IMU_Yaw = 0;
 	TimesThroughLoop = 0;
-	Button1Pressed = false;
+	ButtonAPressed = false; //180
+	ButtonBPressed = false; //135
+	ButtonXPressed = false; //-135
+	ButtonYPressed = false; //0
 	slow_button = false;
 }
 
@@ -58,7 +60,10 @@ driveCommand::driveCommand() {
 void driveCommand::Initialize() {
 	//printf("\n In driveCommand::Initialize");
 
-	Button2Pressed = false; //B button on xbox 360 controller used to start AutoRotate
+	ButtonAPressed = false; //180
+	ButtonBPressed = false; //135
+	ButtonXPressed = false; //-135
+	ButtonYPressed = false; //0
 
 	SetSpeed = 0; // Current spin speed for piece wise linear angle from set point distance
 	MaxScalingSpeed = 1; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
@@ -108,22 +113,34 @@ void driveCommand::Execute() {
 
 	//Button press indicates start AutoROtate command
 	//Set Rotate Angle Based on Which Button
-	Button2Pressed = Robot::oi->getJoystick1()->GetRawButton(2);
-	if(Button2Pressed == true)
+	ButtonYPressed = Robot::oi->getJoystick1()->GetRawButton(4);
+	if(ButtonYPressed == true)
 	{
 		SetAngle = 0;
 	}
 
-	Button1Pressed = Robot::oi->getJoystick1()->GetRawButton(1);
-	if(Button1Pressed == true)
+	ButtonAPressed = Robot::oi->getJoystick1()->GetRawButton(1);
+	if(ButtonAPressed == true)
 	{
 		SetAngle = 175;
+	}
+
+	ButtonBPressed = Robot::oi->getJoystick1()->GetRawButton(2);
+	if(ButtonBPressed == true)
+	{
+		SetAngle = 135;
+	}
+
+	ButtonXPressed = Robot::oi->getJoystick1()->GetRawButton(3);
+	if(ButtonXPressed == true)
+	{
+		SetAngle = -135;
 	}
 
 
 
 	//Start if the button is pressed and we arent already going, or if we aren't done from previous conditions
-	if( ((Button2Pressed == true)||((Button1Pressed ==true) && (AutoRotDone == true))) || (AutoRotDone == false))
+	if(((ButtonYPressed ||ButtonXPressed == true || ButtonAPressed == true || ButtonBPressed == true) && AutoRotDone == true) || (AutoRotDone == false))
 	{
 		//Rotate to Set Angle at Max Speed (1)
 		AutoRotCmd = RotateToAngleDrive(SetAngle, MaxScalingSpeed);
@@ -142,7 +159,7 @@ void driveCommand::Execute() {
 
 	if(slow_button == true)
 	{
-		XAxis = XAxis / 2;
+		XAxis = XAxis / 1.5;
 		YAxis = YAxis / 2;
 		RotateAxis = RotateAxis / 2;
 	}

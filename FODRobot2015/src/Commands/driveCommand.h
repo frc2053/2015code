@@ -37,8 +37,10 @@ private:
 	float DRIVE_Y; // used for translation magnitude to drive command - not used - stays 0
 	float ROTATE_LOOP_CHECK; //checks for iterations through loop. Change later depending on robot
 
-	bool Button2Pressed; //B button on xbox 360 controller used to start AutoRotate
-	bool Button1Pressed;
+	bool ButtonAPressed; //rotate to 180
+	bool ButtonBPressed; //rotate to 135
+	bool ButtonXPressed; //rotate to -135
+	bool ButtonYPressed; //rotate to 0
 
 	float SetAngle; // Saves the commanded go-to angle functional parameter passed in.
 	float SetInitAngle; // Initial Set Angle for Rotation

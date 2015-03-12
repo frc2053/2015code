@@ -27,7 +27,7 @@ FullAutoShort::FullAutoShort()
 
 	//winches up to final tote
 	AddSequential(new WinchAuto(1, .8));
-	AddSequential(new DriveWhileWinching(0.0,-0.6,0.0,Robot::driveBaseSub->getAdjYaw(),1.3,1,1,0));
+	AddSequential(new DriveWhileWinching(0.0,-0.6,0.0,Robot::driveBaseSub->getAdjYaw(),1.2,1,1,0));
 	AddSequential(new DriveWhileWinching(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0));
 
 	//drop first and second totes(ma-goats) on final tote, then grab final tote
