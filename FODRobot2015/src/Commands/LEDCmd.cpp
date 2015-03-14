@@ -16,17 +16,35 @@ LEDCmd::LEDCmd()
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(Robot::ledsub);
+	time_timer = 0;
+	time_run = LED_DELAY;
+	timer = new Timer();
+	LEDDone = false;
 }
 
 // Called just before this Command runs the first time
 void LEDCmd::Initialize()
 {
-
+	time_timer = 0;
+	time_run = LED_DELAY;
+	timer->Reset();
+	timer->Start();
+	LEDDone = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void LEDCmd::Execute()
 {
+	time_timer = timer->Get();
+	if(time_timer >= time_run)
+	{
+		LEDDone = true;
+	}
+	else
+	{
+		LEDDone = false;
+	}
+
 	if(i == 43)
 	{
 		i = 0;
@@ -48,7 +66,7 @@ void LEDCmd::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool LEDCmd::IsFinished()
 {
-	return false;
+	return LEDDone;
 }
 
 // Called once after isFinished returns true

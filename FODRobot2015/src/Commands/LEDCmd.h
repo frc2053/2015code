@@ -13,6 +13,13 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+private:
+	Timer* timer;
+	double time_run;
+	double time_timer;
+	bool LEDDone;
+	const float LED_DELAY = 0.1;
+
 };
 
 #endif

@@ -17,11 +17,11 @@ TwentyPointAuto::TwentyPointAuto()
 		//Angle, Speed
 		AddSequential(new RotatetoAngle(-45,1));
 		//Side Magnitude, Forward Magnitude, Rotation Magnitude, Position Yaw, Drive Time, Drive Angle, Winch Magnitude, Winch Time
-		AddSequential(new DriveWhileWinching(0,-1,0.0,0,1,0,1,1));
+		AddSequential(new DriveWhileWinching(0,-1,0.0,Robot::driveBaseSub->getAdjYaw(),1,1,1,0));
 		AddSequential(new RotatetoAngle(45,1));
-		AddSequential(new DriveWhileWinching(0,-1,0,0,1,0,1,1));
+		AddSequential(new DriveWhileWinching(0,-1,0,Robot::driveBaseSub->getAdjYaw(),1,1,1,0));
 		AddSequential(new RotatetoAngle(0,1));
-		AddSequential(new DriveWhileWinching(0,-1,0,0,0,1,0,0));
+		AddSequential(new DriveWhileWinching(0,-1,0,Robot::driveBaseSub->getAdjYaw(),1,0,0,0));
 
 
 	//At Second Tote, Lower First Down and Pick Up Both
