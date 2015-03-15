@@ -17,6 +17,12 @@ public:
 	bool flopper_toggle = false;
 	bool wing_open = false;
 	bool flopper_down = false;
+private:
+	Timer* timer;
+	double time_run;
+	double time_timer;
+	bool PneumaticsDone;
+	double const PNEUMATIC_DELAY = 0.3;
 
 };
 
