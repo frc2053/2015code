@@ -9,8 +9,8 @@ CanGrabAutoGroup::CanGrabAutoGroup()
 	AddSequential(new driveAuto(0.0,1,0.0,0.0,.5));
 	AddSequential(new AutoCanGrabber(false,true,false));
 	AddSequential(new driveAuto(0,0,0,0,1.75));
-	AddSequential(new driveAuto(0.0,-.5,0.0,0.0,1));
+	AddSequential(new driveAuto(0.0,-.5,0.0,0.0,2));
 	AddSequential(new AutoCanGrabber(true,false,true));
 	AddSequential(new AutoCanGrabber(false,true,true));
-	//AddSequential(new SetOffSet(180));
+	AddSequential(new SetOffSet(180));
 }
