@@ -22,7 +22,7 @@ FullAutoShort::FullAutoShort()
 	//drop first tote on second tote, then pick up second tote
 	AddSequential(new WinchAuto(-1,0.5));
 	AddSequential(new PneumaticsAuto(true,true, true));
-	//AddSequential(new WinchAuto(-0.65,1));
+	AddSequential(new WinchAuto(-0.65,1));
 	AddSequential(new WinchAuto(0.0,0));
 	AddSequential(new PneumaticsAuto(true,true, false));
 
@@ -34,7 +34,7 @@ FullAutoShort::FullAutoShort()
 	//drop first and second totes(ma-goats) on final tote, then grab final tote
 	AddSequential(new WinchAuto(-1,0.5));
 	AddSequential(new PneumaticsAuto(true,true, true));
-	//AddSequential(new WinchAuto(-0.5,1.3));
+	AddSequential(new WinchAuto(-0.5,1.3));
 	AddSequential(new WinchAuto(0.0,0));
 	AddSequential(new PneumaticsAuto(true,true, false));
 
