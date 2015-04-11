@@ -12,7 +12,7 @@ GrabNGoAuto::GrabNGoAuto()
 	//side, fow, rot, yaw, time
 	AddSequential(new PneumaticsAuto(true, true, false));
 	//printf("grabandgoauto 1\n");
-	AddSequential(new DriveWhileWinching(0.0, 0.5, 0.0, Robot::driveBaseSub->getAdjYaw(), 2.2, 1, 1, 0));
+	AddSequential(new DriveWhileWinching(0.0, 0.5, 0.0, Robot::driveBaseSub->getAdjYaw(), 1.9, 1, 1, 0));
 	//printf("grabandgoauto 2\n");
 	//printf("grabandgoauto 3\n");
 	AddSequential(new SetOffSet(180));

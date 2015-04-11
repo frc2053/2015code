@@ -61,9 +61,9 @@ void RobotMap::init() {
 
 	Red_LED = new DigitalOutput(1);//really is green
 
-	Blue_LED = new DigitalOutput(3);
+	Blue_LED = new DigitalOutput(2);
 
-	Green_LED = new DigitalOutput(2);//really is red
+	Green_LED = new DigitalOutput(3);//really is red
 
 	flopperSolenoid = new DoubleSolenoid(4,5);
 
