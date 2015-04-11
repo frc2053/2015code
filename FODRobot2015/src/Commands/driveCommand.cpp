@@ -54,6 +54,8 @@ driveCommand::driveCommand() {
 	ButtonXPressed = false; //-135
 	ButtonYPressed = false; //0
 	slow_button = false;
+	roboCentricButton = false;
+	isRoboCentric = false;
 }
 
 // Called just before this Command runs the first time
@@ -101,11 +103,72 @@ void driveCommand::Initialize() {
 
 	slow_button = false;
 
+	roboCentricButton = false;
+	isRoboCentric = false;
+
 	//printf("\n Done driveCommand::Initialize()");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
+	isRoboCentric = false;
+	//Get Joystick Values from Driver
+	XAxis = Robot::oi->getJoystick1()->GetRawAxis(0);
+	YAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
+	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
+	slow_button = Robot::oi->getJoystick1()->GetRawButton(6);
+
+	//Sets up deadbands (this gets rid of the robot moving very slowly
+	//even when you are not touching the joystick. Because the joystick
+	//is never really at zero, (for example 0.0389583), this checks if
+	//any joystick is in the range of -0.20 to 0.20 and if it is sets it
+	//to zero, if not, sends the current value to the MechDrive function.
+
+	//Also squares the values which increases sensitivity, and (mostly) blends out
+	//the discontinuity you would have with just the dead band (there's no step from 0 to .2,
+	//the lowest value is 0 to .04 now.
+
+	if(XAxis > -0.20 && XAxis < 0.20)
+	{
+		XAxis = 0;
+	}
+	else
+	{
+		XAxis = XAxis * fabs(XAxis);
+	}
+
+
+
+	if(YAxis > -0.20 && YAxis < 0.20)
+	{
+		YAxis = 0;
+	}
+	else
+	{
+		YAxis = YAxis * fabs(YAxis);
+	}
+
+
+
+	if(RotateAxis > -0.20 && RotateAxis < 0.20)
+	{
+		RotateAxis = 0;
+	}
+	else
+	{
+		RotateAxis = RotateAxis * fabs(RotateAxis);
+	}
+
+	roboCentricButton = Robot::oi->getJoystick1()->GetRawButton(5);
+	while(roboCentricButton == true)
+	{
+		Robot::driveBaseSub->MechDrive(XAxis,YAxis,RotateAxis,0);
+		isRoboCentric = true;
+	}
+	if(isRoboCentric == true)
+	{
+		return;
+	}
 	//printf("\n In driveCommand::Execute(");
 
 	//Set the value back from the Autorotate command to zero for each passd through the loop
@@ -151,58 +214,11 @@ void driveCommand::Execute() {
 	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
 	SmartDashboard::PutNumber("Angle of Robot", IMU_Yaw);
 
-	//Get Joystick Values from Driver
-	XAxis = Robot::oi->getJoystick1()->GetRawAxis(0);
-	YAxis = Robot::oi->getJoystick1()->GetRawAxis(1);
-	RotateAxis = Robot::oi->getJoystick1()->GetRawAxis(4);
-	slow_button = Robot::oi->getJoystick1()->GetRawButton(6);
-
 	if(slow_button == true)
 	{
 		XAxis = XAxis / 1.5;
 		YAxis = YAxis / 2;
 		RotateAxis = RotateAxis / 2;
-	}
-
-	//Sets up deadbands (this gets rid of the robot moving very slowly
-	//even when you are not touching the joystick. Because the joystick
-	//is never really at zero, (for example 0.0389583), this checks if
-	//any joystick is in the range of -0.20 to 0.20 and if it is sets it
-	//to zero, if not, sends the current value to the MechDrive function.
-
-	//Also squares the values which increases sensitivity, and (mostly) blends out
-	//the discontinuity you would have with just the dead band (there's no step from 0 to .2,
-	//the lowest value is 0 to .04 now.
-
-	if(XAxis > -0.20 && XAxis < 0.20)
-	{
-		XAxis = 0;
-	}
-	else
-	{
-		XAxis = XAxis * fabs(XAxis);
-	}
-
-
-
-	if(YAxis > -0.20 && YAxis < 0.20)
-	{
-		YAxis = 0;
-	}
-	else
-	{
-		YAxis = YAxis * fabs(YAxis);
-	}
-
-
-	
-	if(RotateAxis > -0.20 && RotateAxis < 0.20)
-	{
-		RotateAxis = 0;
-	}
-	else
-	{
-		RotateAxis = RotateAxis * fabs(RotateAxis);
 	}
 
 	//SmartDashboard::PutNumber("JoyX", XAxis);

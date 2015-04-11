@@ -77,6 +77,8 @@ private:
 	bool AutoRotDone; //Rotate command is done
 
 	bool slow_button; //button to slow drive command
+	bool roboCentricButton; //button to change to robo centric
+	bool isRoboCentric;
 };
 
 #endif
