@@ -54,8 +54,7 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-	IMU_Raw = Robot::driveBaseSub->pRobot_IMU->GetYaw();
-	IMU_Yaw = TigerDriveBase::GetAdjYaw(IMU_Raw);
+	IMU_Yaw = Robot::driveBaseSub->pTigerDriveBase->GetAdjYaw(IMU_Raw);
 	//printf("\n In driveCommand::Execute(");
 
 	//Button press indicates start AutoROtate command
@@ -63,25 +62,25 @@ void driveCommand::Execute() {
 	ButtonYPressed = Robot::oi->getJoystick1()->GetRawButton(4);
 	if(ButtonYPressed == true)
 	{
-		TigerDriveBase::SetAngleFunction(0);
+		Robot::driveBaseSub->pTigerDriveBase->SetAngleFunction(0);
 	}
 
 	ButtonAPressed = Robot::oi->getJoystick1()->GetRawButton(1);
 	if(ButtonAPressed == true)
 	{
-		TigerDriveBase::SetAngleFunction(180);
+		Robot::driveBaseSub->pTigerDriveBase->SetAngleFunction(180);
 	}
 
 	ButtonBPressed = Robot::oi->getJoystick1()->GetRawButton(2);
 	if(ButtonBPressed == true)
 	{
-		TigerDriveBase::SetAngleFunction(135);
+		Robot::driveBaseSub->pTigerDriveBase->SetAngleFunction(135);
 	}
 
 	ButtonXPressed = Robot::oi->getJoystick1()->GetRawButton(3);
 	if(ButtonXPressed == true)
 	{
-		TigerDriveBase::SetAngleFunction(-135);
+		Robot::driveBaseSub->pTigerDriveBase->SetAngleFunction(-135);
 	}
 
 
@@ -90,7 +89,7 @@ void driveCommand::Execute() {
 	if(((ButtonYPressed ||ButtonXPressed == true || ButtonAPressed == true || ButtonBPressed == true) && AutoRotDone == true) || (AutoRotDone == false))
 	{
 		//Rotate to Set Angle at Max Speed (1)
-		AutoRotCmd = TigerDriveBase::GetRotateCommand(1, IMU_Yaw);
+		AutoRotCmd = Robot::driveBaseSub->pTigerDriveBase->GetRotateCommand(1, IMU_Yaw);
 	}
 
 
