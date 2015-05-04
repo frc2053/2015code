@@ -39,13 +39,13 @@ TigerDriveBase::TigerDriveBase()
 	yawoffset = 0;
 }
 
-float TigerDriveBase::IMU_YAWoffset(float offset)
+static float TigerDriveBase::IMU_YAWoffset(float offset)
 {
 	yawoffset = offset;
 	return yawoffset;
 }
 
-float TigerDriveBase::GetAdjYaw(float raw_IMU)
+static float TigerDriveBase::GetAdjYaw(float raw_IMU)
 {
 	IMU_Yaw = raw_IMU;
 	calculatedoffset = IMU_Yaw + yawoffset;
@@ -56,13 +56,13 @@ float TigerDriveBase::GetAdjYaw(float raw_IMU)
 	return calculatedoffset;
 }
 
-float TigerDriveBase::GetRotateCommand(float Speed, float IMU_Raw)
+static float TigerDriveBase::GetRotateCommand(float Angle, float Speed, float IMU_Raw)
 {
 	AutoRotCmd = 0;
 	AutoRotDone = false; // Just started - can't be done yet
 
 	//passes in values
-	SetInitAngle = TigerDriveBase::GetAngleFunction();
+	SetInitAngle = Angle;
 	MaxScalingSpeed = Speed;
 
 	//Assume we don't need the robot to spin until proven via measurement.
@@ -154,12 +154,7 @@ float TigerDriveBase::GetRotateCommand(float Speed, float IMU_Raw)
 	return RotCmd;
 }
 
-void TigerDriveBase::SetAngleFunction(int angle)
+static void TigerDriveBase::SetAngleFunction(float angle)
 {
 	SetAngle = angle;
-}
-
-float TigerDriveBase::GetAngleFunction()
-{
-	return SetAngle;
 }

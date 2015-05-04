@@ -14,18 +14,17 @@ class TigerDriveBase
 {
 public:
 	TigerDriveBase();
-	float GetAdjYaw(float raw_IMU);
-	float IMU_YAWoffset(float offset);
-	float GetRotateCommand(float Speed, float IMU_Raw);
-	void SetAngleFunction(int angle);
-	float GetAngleFunction();
+	static float GetAdjYaw(float raw_IMU);
+	static float IMU_YAWoffset(float offset);
+	static float GetRotateCommand(float Speed, float IMU_Raw);
+	static void SetAngleFunction(float angle);
 	float SetSpeed; // Current spin speed for piece wise linear angle from set point distance
 	float SetAngle; // Saves the commanded go-to angle functional parameter passed in.
 	float SetInitAngle; // Initial Set Angle for Rotation
 	float MaxScalingSpeed; // Scales SetSpeed by overall scaling factor (used to slow down whole spin)
 	float AutoRotCmd; // Rotate command from AutoRotate calculator
 private:
-	const float ROTATE_LOOP_CHECK = 5; //checks for iterations through loop. Change later depending on robot
+	static const float ROTATE_LOOP_CHECK = 5; //checks for iterations through loop. Change later depending on robot
 	static float IMU_Yaw;  //Yaw value from IMU and scaled value to eliminate
 	static float IMU_Scaled; // Translated to a non-wrapping scale (-180 to 180 -> 820 to 1180)
 	static float SetAngleScaled; // Converted value of the Commanded Set Angle to linear scale.
@@ -43,6 +42,6 @@ private:
 	static float calculatedoffset; //calculated for imu offset
 	static float yawoffset; //calc param
 protected:
-	const float ANGLE_TOLERANCE = 2; // Tolerance in degrees on either side of set angle
+	static const float ANGLE_TOLERANCE = 2; // Tolerance in degrees on either side of set angle
 };
 #endif
