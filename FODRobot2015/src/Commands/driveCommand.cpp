@@ -10,6 +10,7 @@
 
 
 #include "driveCommand.h"
+#include "TigerDrive/TigerDrive.h"
 
 driveCommand::driveCommand() {
 	//printf("\n In driveCommand::driveCommand()");
@@ -148,7 +149,7 @@ void driveCommand::Execute() {
 
 
 	//Read current robot orientation angle measured from starting position=0 degrees
-	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
+	IMU_Yaw =
 	SmartDashboard::PutNumber("Angle of Robot", IMU_Yaw);
 
 	//Get Joystick Values from Driver
@@ -232,107 +233,6 @@ void driveCommand::Execute() {
 	//printf("\n Leaving driveCommand::Execute()");
 
 
-}
-
-float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
-
-	//printf("\n In driveCommand::RotateToAngleDrive");
-
-	AutoRotDone = false; // Just started - can't be done yet
-
-	//passes in values
-	SetInitAngle = Angle;
-	MaxScalingSpeed = Speed;
-
-	DriverRotateAxisOverride = Robot::oi->getJoystick1()->GetRawAxis(4); //get joystick for override
-
-	//Assume we don't need the robot to spin until proven via measurement.
-	TooFarCW = false;
-	TooFarCCW = false;
-
-	//Default to no rotation commanded
-	RotCmd = 0;
-
-	//Read the actual Robot Angle from IMU
-	IMU_Yaw = Robot::driveBaseSub->getAdjYaw();
-
-	//Scale the IMU reading
-	IMU_Scaled = IMU_Yaw + 1000;
-
-	//Scale Set Angle
-	SetAngleScaled = SetInitAngle + 1000;
-	//printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
-
-	//set spin direction and degrees to rotate to
-	if(IMU_Scaled > (SetAngleScaled + ANGLE_TOLERANCE)) {
-		TooFarCW = true;
-		SpinDirection = -1;
-		DegreesToSetPoint = IMU_Scaled - SetAngleScaled;
-	}
-
-	//set spin direction and degrees to rotate to
-	if (IMU_Scaled < (SetAngleScaled - ANGLE_TOLERANCE)) {
-		TooFarCCW = true;
-		SpinDirection = 1;
-		DegreesToSetPoint = SetAngleScaled - IMU_Scaled;
-	}
-
-
-	//Only start spinning if we need to.
-	if (TooFarCW || TooFarCCW) {
-		DegreesToSetPointAbs = fabs(DegreesToSetPoint);
-
-		//scale speeds based on degrees. Why not an exponential function? :(
-		if(DegreesToSetPointAbs <= 180)
-		{
-			SetSpeed = 1;
-		}
-		if(DegreesToSetPointAbs < 90)
-		{
-			SetSpeed = 0.4;
-		}
-		if(DegreesToSetPointAbs < 60)
-		{
-			SetSpeed = 0.3;
-		}
-		if(DegreesToSetPointAbs < 30)
-		{
-			SetSpeed = 0.2;
-		}
-
-		// Convert from absolute angle back to direction based
-		RotCmd = SpinDirection * SetSpeed;
-		// Multiply in a master speed scaling factor that was passed in if needed
-		RotCmd = RotCmd * MaxScalingSpeed;
-
-		//We need to spin, so set counter to 1 - it shouldn't increment until it has previously spun then come to rest
-		TimesThroughLoop = 1;
-
-		//printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
-
-	}
-
-
-	// If we didn't need to spin, we can end the command now.
-	else {
-		//printf("\n(DriveRotateLoop) Didn't need to spin.");
-		// either the robot has stabilized for so long after rotating or it never rotated to begin with
-		if(TimesThroughLoop == ROTATE_LOOP_CHECK || TimesThroughLoop == 0)
-		{
-			AutoRotDone = true;
-			// reset the loop counter now that the rotation is complete and stable
-			TimesThroughLoop = 0;
-			RotCmd = 0;
-			//printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
-		}
-
-		//robot is within tolerance but hasn't yet been stable for the timeout
-		TimesThroughLoop++;
-
-	}
-
-	//printf("\n Leaving driveCommand::RotateToAngleDrive");
-	return RotCmd;
 }
 
 // Make this return true when this Command no longer needs to run execute()
