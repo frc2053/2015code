@@ -74,7 +74,7 @@ void RotatetoAngle::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void RotatetoAngle::Execute() {
 
-	//printf("\nExecuting rotate to angle command");
+	printf("\nExecuting rotate to angle command");
 	
 	AutoRotDone = false; // Just started - can't be done yet
 
@@ -84,9 +84,9 @@ void RotatetoAngle::Execute() {
 	TooFarCW = false;
 	TooFarCCW = false;
 
-	//printf("\n");
-	//printf("%f", SetSpeed);
-	//printf("\n");
+	printf("\n");
+	printf("%f", SetSpeed);
+	printf("\n");
 
 	//Default to no rotation commanded
 	RotCmd = 0;
@@ -96,11 +96,11 @@ void RotatetoAngle::Execute() {
 
 	//Scale the IMU reading
 	IMU_Scaled = IMU_Yaw + 1000;
-	//printf("(loop) Scaled IMU %3.2f\n", IMU_Scaled);
+	printf("(loop) Scaled IMU %3.2f\n", IMU_Scaled);
 
 	//Scale Set Angle
 	SetAngleScaled = SetAngle + 1000;
-	//printf("(loop) Scaled Set Angle %3.2f\n", SetAngleScaled);
+	printf("(loop) Scaled Set Angle %3.2f\n", SetAngleScaled);
 
 	//set spin direction and degrees to rotate to
 	if(IMU_Scaled > (SetAngleScaled + ANGLE_TOLERANCE)) {
@@ -116,6 +116,12 @@ void RotatetoAngle::Execute() {
 		DegreesToSetPoint = SetAngleScaled - IMU_Scaled;
 	}
 
+
+	if(DegreesToSetPoint > 180)
+	{
+	DegreesToSetPoint = 360 - DegreesToSetPoint;
+	SpinDirection = SpinDirection * -1;
+	}
 
 	//Only start spinning if we need to.
 	if (TooFarCW || TooFarCCW) {
@@ -147,14 +153,14 @@ void RotatetoAngle::Execute() {
 		//We need to spin, so set counter to 1 - it shouldn't increment until it has previously spun then come to rest
 		TimesThroughLoop = 1;
 
-		//printf("\n(RotatetoAngle) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
+		printf("\n(RotatetoAngle) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
 
 	}
 
 
 	// If we didn't need to spin, we can end the command now.
 	else {
-		//printf("\n(loop)Didn't need to spin.\n\n");
+		printf("\n(loop)Didn't need to spin.\n\n");
 		// either the robot has stabilized for so long after rotating or it never rotated to begin with
 		if(TimesThroughLoop == ROTATE_LOOP_CHECK || TimesThroughLoop == 0)
 		{
@@ -162,12 +168,12 @@ void RotatetoAngle::Execute() {
 			// reset the loop counter now that the rotation is complete and stable
 			TimesThroughLoop = 0;
 			RotCmd = 0;
-			//printf("\n(RotatetoAngle) Spinning Can Stop Now ");
+			printf("\n(RotatetoAngle) Spinning Can Stop Now ");
 		}
 
 		//robot is within tolerance but hasn't yet been stable for the timeout
 		TimesThroughLoop++;
-		//printf("\ntimes through loop: %d", TimesThroughLoop);
+		printf("\ntimes through loop: %d", TimesThroughLoop);
 	}
 
 
@@ -190,27 +196,27 @@ void RotatetoAngle::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool RotatetoAngle::IsFinished() {
-	//printf("\n\nRan through execute loop.\n\n");
+	printf("\n\nRan through execute loop.\n\n");
 	if(AutoRotDone == true)
 	{
-		//printf("AutoRotDone is true");
+		printf("AutoRotDone is true");
 	}
 	else
 	{
-		//printf("AutoRotDone is false");
+		printf("AutoRotDone is false");
 	}
 	return AutoRotDone;
 }
 
 // Called once after isFinished returns true
 void RotatetoAngle::End() {
-	//printf("\n In RotatetoAngle::End()");
+	printf("\n In RotatetoAngle::End()");
 	Robot::driveBaseSub->MechDrive(0,0,0,0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RotatetoAngle::Interrupted() {
-	//printf("\n In RotatetoAngle::Interrupted()");
+	printf("\n In RotatetoAngle::Interrupted()");
 	Robot::driveBaseSub->MechDrive(0,0,0,0);
 }

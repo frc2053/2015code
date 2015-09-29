@@ -54,6 +54,8 @@ driveCommand::driveCommand() {
 	ButtonXPressed = false; //-135
 	ButtonYPressed = false; //0
 	slow_button = false;
+	pdp = new PowerDistributionPanel();
+	amponmotor = 0;
 }
 
 // Called just before this Command runs the first time
@@ -106,6 +108,8 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
+	pdp->GetCurrent(2);
+	SmartDashboard::PutNumber("Amp on frontleft motor", amponmotor);
 	//printf("\n In driveCommand::Execute(");
 
 	//Set the value back from the Autorotate command to zero for each passd through the loop
@@ -122,7 +126,7 @@ void driveCommand::Execute() {
 	ButtonAPressed = Robot::oi->getJoystick1()->GetRawButton(1);
 	if(ButtonAPressed == true)
 	{
-		SetAngle = 175;
+		SetAngle = 180;
 	}
 
 	ButtonBPressed = Robot::oi->getJoystick1()->GetRawButton(2);
@@ -236,7 +240,7 @@ void driveCommand::Execute() {
 
 float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 
-	//printf("\n In driveCommand::RotateToAngleDrive");
+	printf("\n In driveCommand::RotateToAngleDrive");
 
 	AutoRotDone = false; // Just started - can't be done yet
 
@@ -261,7 +265,7 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 
 	//Scale Set Angle
 	SetAngleScaled = SetInitAngle + 1000;
-	//printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
+	printf("\n(DriveRotateLoop) Scaled IMU %3.2f  Scaled Set Angle %3.2f\n", IMU_Scaled, SetAngleScaled);
 
 	//set spin direction and degrees to rotate to
 	if(IMU_Scaled > (SetAngleScaled + ANGLE_TOLERANCE)) {
@@ -277,6 +281,12 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 		DegreesToSetPoint = SetAngleScaled - IMU_Scaled;
 	}
 
+
+	if(DegreesToSetPoint > 180)
+	{
+	DegreesToSetPoint = 360 - DegreesToSetPoint;
+	SpinDirection = SpinDirection * -1;
+	}
 
 	//Only start spinning if we need to.
 	if (TooFarCW || TooFarCCW) {
@@ -308,14 +318,14 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 		//We need to spin, so set counter to 1 - it shouldn't increment until it has previously spun then come to rest
 		TimesThroughLoop = 1;
 
-		//printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
+		printf("\n(DriveRotateLoop) SpinCW = %d     SpinCCW = %d     SpinDir = %d     RotCmd = %3.2f\n", TooFarCCW, TooFarCW, SpinDirection, RotCmd);
 
 	}
 
 
 	// If we didn't need to spin, we can end the command now.
 	else {
-		//printf("\n(DriveRotateLoop) Didn't need to spin.");
+		printf("\n(DriveRotateLoop) Didn't need to spin.");
 		// either the robot has stabilized for so long after rotating or it never rotated to begin with
 		if(TimesThroughLoop == ROTATE_LOOP_CHECK || TimesThroughLoop == 0)
 		{
@@ -323,7 +333,7 @@ float driveCommand::RotateToAngleDrive(float Angle, float Speed) {
 			// reset the loop counter now that the rotation is complete and stable
 			TimesThroughLoop = 0;
 			RotCmd = 0;
-			//printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
+			printf("\n(DriveRotateLoop) Spinning Can Stop Now ");
 		}
 
 		//robot is within tolerance but hasn't yet been stable for the timeout
