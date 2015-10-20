@@ -13,7 +13,7 @@ public:
 	Winch();
 	void InitDefaultCommand();
 	void WinchMotor(float);
-	CANJaguar* winchJag;
+	CANTalon* winchTalon;
 	DigitalInput* bottomSwitch;
 };
 

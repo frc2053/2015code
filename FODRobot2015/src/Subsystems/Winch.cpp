@@ -4,7 +4,7 @@
 
 Winch::Winch() : Subsystem("Winch")
 {
-	winchJag = RobotMap::winchJag;
+	winchTalon = RobotMap::winchTalon;
 	bottomSwitch  = RobotMap::bottomSwitch;
 	printf("winchSub constructor\n");
 }
@@ -18,5 +18,5 @@ void Winch::InitDefaultCommand()
 // here. Call these from Commands.
 
 void Winch::WinchMotor(float speed) {
-	Robot::winch->winchJag->Set(speed);
+	Robot::winch->winchTalon->Set(speed);
 }

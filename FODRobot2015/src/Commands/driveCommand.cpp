@@ -108,7 +108,8 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-	pdp->GetCurrent(2);
+	amponmotor = pdp->GetCurrent(2);
+	printf("%f", amponmotor);
 	SmartDashboard::PutNumber("Amp on frontleft motor", amponmotor);
 	//printf("\n In driveCommand::Execute(");
 
