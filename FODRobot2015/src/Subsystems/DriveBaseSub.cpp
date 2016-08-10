@@ -24,8 +24,8 @@ DriveBaseSub::DriveBaseSub() : Subsystem("DriveBaseSub") {
 	backRightTalon = RobotMap::driveBaseSubBackRightTalon;
 	backLeftTalon = RobotMap::driveBaseSubBackLeftTalon;
 	robotDrive = RobotMap::driveBaseSubRobotDrive;
-	pIMU_SerialPort = new SerialPort(BAUD_RATE, SerialPort::kOnboard);
-	pRobot_IMU = new IMU(pIMU_SerialPort, UPDATE_RATE_HZ);
+	//pIMU_SerialPort = new SerialPort(BAUD_RATE, SerialPort::kOnboard);
+	pRobot_IMU = new AHRS(SPI::Port::kMXP);
 	printf("DriveBaseSub constructor\n");
 	IMU_Yaw = 0;
 	calculatedoffset = 0;

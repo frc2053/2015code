@@ -79,6 +79,7 @@ private:
 	bool slow_button; //button to slow drive command
 	PowerDistributionPanel* pdp;
 	float amponmotor;
+	float speedMulti;
 };
 
 #endif
